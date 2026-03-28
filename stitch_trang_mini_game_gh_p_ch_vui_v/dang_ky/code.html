@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký - Tiếng Việt Bé Yêu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Be+Vietnam+Pro:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-sky: #9ae1ff;
+            --primary-action: #04647d;
+            --surface-grass: #e6ffc5;
+            --surface-container-lowest: #ffffff;
+            --on-background: #1d3500;
+        }
+
+        body {
+            margin: 0;
+            background: url('https://www.transparenttextures.com/patterns/clouds.png'), var(--surface-grass);
+            font-family: 'Be Vietnam Pro', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .auth-card {
+            background: var(--surface-container-lowest);
+            padding: 3rem;
+            border-radius: 4rem; /* xl rounding */
+            box-shadow: 0px 20px 40px rgba(29, 53, 0, 0.06);
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.2rem;
+            color: var(--primary-action);
+            margin-bottom: 1rem;
+        }
+
+        .parent-note {
+            background: var(--primary-sky);
+            color: var(--primary-action);
+            padding: 10px;
+            border-radius: 1rem;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .input-group { margin-bottom: 1.2rem; text-align: left; }
+        
+        label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--on-background); padding-left: 1rem; }
+
+        input {
+            width: 100%;
+            padding: 1.2rem;
+            border: none;
+            background: #f0fdf4;
+            border-radius: 2rem;
+            font-size: 1rem;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .btn-register {
+            width: 100%;
+            padding: 1.3rem;
+            background: linear-gradient(15deg, var(--primary-action), var(--primary-sky));
+            color: white;
+            border: none;
+            border-radius: 3rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0px 10px 20px rgba(4, 100, 125, 0.2);
+            margin-top: 1rem;
+        }
+
+        .btn-register:active { transform: scale(0.96); }
+
+        .link-back {
+            display: block;
+            margin-top: 1.5rem;
+            color: var(--primary-action);
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-card">
+        <h1>Tạo Tài Khoản</h1>
+        <div class="parent-note">Chỉ dành cho Ba Mẹ</div>
+        
+        <form>
+            <div class="input-group">
+                <label>Tên của Ba/Mẹ</label>
+                <input type="text" placeholder="Ví dụ: Mẹ Lan">
+            </div>
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" placeholder="email@vi-du.com">
+            </div>
+            <div class="input-group">
+                <label>Mật khẩu</label>
+                <input type="password" placeholder="••••••••">
+            </div>
+            <button type="button" class="btn-register" onclick="location.href='login.html'">Đăng Ký Ngay</button>
+        </form>
+        
+        <a href="#" class="link-back">Đã có tài khoản? Đăng nhập</a>
+    </div>
+</body>
+</html>

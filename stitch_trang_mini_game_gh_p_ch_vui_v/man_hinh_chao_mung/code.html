@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiếng Việt Bé Yêu - Chào Mừng</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&family=Be+Vietnam+Pro:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <style>
+        :root {
+            /* Palette logic từ tài liệu */
+            --primary-sky: #9ae1ff;
+            --primary-action: #04647d;
+            --secondary-soft-pink: #ffc2ca;
+            --secondary-heart: #834b55;
+            --tertiary-sunny: #feda57;
+            --surface-grass: #e6ffc5;
+            --surface-container-low: #f3ffe0;
+            --surface-container-lowest: #ffffff;
+            --on-background: #1d3500; /* Thay cho màu đen thuần */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--surface-grass);
+            font-family: 'Be Vietnam Pro', sans-serif;
+            color: var(--on-background);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Bố cục Tactile Cloudscape */
+        .onboarding-card {
+            background-color: var(--surface-container-lowest);
+            padding: 3rem;
+            border-radius: 3rem; /* xl rounding scale */
+            box-shadow: 0px 20px 40px rgba(29, 53, 0, 0.06); /* Ambient Shadows */
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.5rem; /* Heroic scaling */
+            margin-bottom: 1rem;
+            background: linear-gradient(15deg, var(--primary-action), var(--primary-sky));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Nhập tên với hiệu ứng Squishy */
+        .name-input {
+            width: 100%;
+            padding: 1.5rem;
+            border: none;
+            background-color: var(--surface-container-low);
+            border-radius: 2rem;
+            font-size: 1.5rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            text-align: center;
+            color: var(--primary-action);
+            margin-bottom: 2rem;
+            outline: none;
+            transition: transform 0.2s;
+        }
+
+        .name-input:focus {
+            transform: scale(1.02);
+        }
+
+        /* Chọn nhân vật - Intentional Asymmetry */
+        .character-selector {
+            display: flex;
+            justify-content: space-around;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .char-option {
+            width: 100px;
+            height: 100px;
+            background-color: var(--secondary-soft-pink);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            /* Wobble effect animation can be added via JS */
+        }
+
+        /* Asymmetry: Cài đặt vị trí hơi lệch cho sinh động */
+        .char-option:nth-child(even) { transform: translateY(-10px); }
+
+        .char-option.selected {
+            background-color: var(--tertiary-sunny);
+            transform: scale(1.2) rotate(5deg);
+            box-shadow: 0 0 20px var(--tertiary-sunny);
+        }
+
+        /* Nút Action chính */
+        .btn-start {
+            background: linear-gradient(15deg, var(--primary-action), var(--primary-sky));
+            color: white;
+            border: none;
+            padding: 1.5rem 4rem;
+            border-radius: 3rem; /* xl rounding */
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.75rem;
+            cursor: pointer;
+            box-shadow: 0px 10px 20px rgba(4, 100, 125, 0.2);
+            transition: transform 0.1s;
+        }
+
+        .btn-start:active {
+            transform: scale(0.95); /* Squish animation */
+        }
+
+        /* Decorative clouds */
+        .cloud {
+            position: absolute;
+            background: white;
+            border-radius: 50px;
+            opacity: 0.6;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cloud" style="width: 200px; height: 60px; top: 10%; left: 5%;"></div>
+    <div class="cloud" style="width: 150px; height: 50px; bottom: 15%; right: 10%;"></div>
+
+    <div class="onboarding-card">
+        <h1>Chào bé yêu!</h1>
+        <p>Bé tên là gì nhỉ?</p>
+        
+        <input type="text" class="name-input" placeholder="Nhập tên của bé..." maxlength="10">
+
+        <p>Chọn bạn nhỏ đồng hành:</p>
+        <div class="character-selector">
+            <div class="char-option" onclick="selectChar(this)">🐥</div>
+            <div class="char-option" onclick="selectChar(this)">🐱</div>
+            <div class="char-option" onclick="selectChar(this)">🐰</div>
+        </div>
+
+        <button class="btn-start" onclick="startGame()">Bắt đầu!</button>
+    </div>
+
+    <script>
+        // Logic chọn nhân vật
+        function selectChar(element) {
+            document.querySelectorAll('.char-option').forEach(el => {
+                el.classList.remove('selected');
+            });
+            element.classList.add('selected');
+            
+            // Âm thanh hoặc rung phản hồi nhẹ có thể thêm ở đây
+        }
+
+        // Giả lập hiệu ứng Wobble (lung lay) nhẹ cho các nhân vật như tài liệu yêu cầu
+        const chars = document.querySelectorAll('.char-option');
+        chars.forEach(char => {
+            setInterval(() => {
+                const randomRotate = (Math.random() * 4 - 2).toFixed(2); // ±2-degree rotation
+                char.style.transform += ` rotate(${randomRotate}deg)`;
+            }, 1000);
+        });
+
+        function startGame() {
+            const name = document.querySelector('.name-input').value;
+            if(!name) {
+                alert("Bé ơi, hãy nhập tên để mình cùng chơi nhé!");
+                return;
+            }
+            // Chuyển màn hình với hiệu ứng spring (có thể dùng Framer Motion nếu tích hợp sâu)
+            console.log("Bắt đầu trò chơi cho bé: " + name);
+        }
+    </script>
+</body>
+</html>

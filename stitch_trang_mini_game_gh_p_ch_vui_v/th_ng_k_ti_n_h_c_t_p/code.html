@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tiến Độ Học Tập Của Bé - Chữ Cái Vui Vẻ</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline-variant": "#7bbf22",
+              "on-error": "#ffefee",
+              "surface-tint": "#04647d",
+              "outline": "#508400",
+              "error-dim": "#9f0519",
+              "on-primary-fixed": "#003d4f",
+              "background": "#e6ffc5",
+              "secondary-dim": "#764049",
+              "on-secondary-fixed": "#55252f",
+              "tertiary-container": "#feda57",
+              "inverse-primary": "#9ae1ff",
+              "tertiary-dim": "#604e00",
+              "on-tertiary-fixed": "#483a00",
+              "tertiary": "#6e5a00",
+              "secondary-container": "#ffc2ca",
+              "secondary": "#834b55",
+              "surface-variant": "#98f500",
+              "surface-container": "#acff46",
+              "surface": "#e6ffc5",
+              "tertiary-fixed-dim": "#efcc4b",
+              "surface-bright": "#e6ffc5",
+              "on-tertiary-fixed-variant": "#695600",
+              "on-secondary-container": "#6c3841",
+              "on-primary-fixed-variant": "#005c74",
+              "secondary-fixed-dim": "#f9b0bb",
+              "on-primary-container": "#005267",
+              "primary-dim": "#00576e",
+              "surface-container-high": "#9ffb21",
+              "inverse-surface": "#061100",
+              "error": "#b31b25",
+              "on-background": "#1d3500",
+              "surface-container-low": "#d2ff9c",
+              "tertiary-fixed": "#feda57",
+              "on-tertiary-container": "#5e4d00",
+              "on-secondary": "#ffeff0",
+              "error-container": "#fb5151",
+              "secondary-fixed": "#ffc2ca",
+              "on-secondary-fixed-variant": "#77404a",
+              "on-tertiary": "#fff2d0",
+              "on-error-container": "#570008",
+              "primary-fixed-dim": "#8cd3f0",
+              "on-surface-variant": "#3d6600",
+              "primary-container": "#9ae1ff",
+              "inverse-on-surface": "#6bae07",
+              "surface-dim": "#92ec00",
+              "surface-container-lowest": "#ffffff",
+              "primary": "#04647d",
+              "on-primary": "#e3f6ff",
+              "on-surface": "#1d3500",
+              "surface-container-highest": "#98f500",
+              "primary-fixed": "#9ae1ff"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 z-50 w-full flex justify-between items-center px-6 py-4 bg-[#e6ffc5] dark:bg-emerald-950/20 no-border bg-surface-container-low">
+<div class="flex items-center gap-3">
+<span class="text-2xl font-black text-[#04647d] dark:text-[#9ae1ff] tracking-tight">Chữ Cái Vui Vẻ</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:scale-105 transition-transform text-[#04647d] font-extrabold flex items-center gap-2">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="hidden md:block">Phụ Huynh</span>
+</button>
+</div>
+</header>
+<!-- SideNavBar (Hidden on Mobile) -->
+<nav class="fixed left-0 top-0 h-screen w-64 flex flex-col py-8 z-40 bg-white dark:bg-slate-900 rounded-r-[3rem] shadow-[0px_20px_40px_rgba(29,53,0,0.06)] hidden md:flex">
+<div class="px-8 mb-10">
+<div class="w-16 h-16 rounded-full bg-secondary-container mb-4 overflow-hidden border-4 border-white shadow-sm">
+<img alt="Avatar" data-alt="close-up 3D illustration of a cute smiling toddler avatar with soft lighting and pastel background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG5BayJwjmBCLhlf684A5nBo9TkcDbo7KV9lyq4S22--HAMvNAkSmAXQqxiyQAvykI9DXqNDxk4WWy1V7rby-eqGteqqIKQPbxFpJxFeUPZa17njwGU1chmkakZ4j0Ur_BNNfZbR-m1HxIW0f2btwI_3dhbeR4axsOB6fyAWmoddvqs6d-Oyqsi-E7tdNHitxUx-2a8iXkN8BlTnm1yKk4QgpTSx8G0nU1qHnrWN3YyBdbdjKkaxVxD7ZzeZGyN0hlrx1GQ6jx2wMZ"/>
+</div>
+<h2 class="font-headline font-bold text-lg text-[#04647d]">Chào bé!</h2>
+<p class="text-sm text-on-surface/60 italic">Hôm nay học chữ gì nhỉ?</p>
+</div>
+<div class="flex flex-col gap-2 flex-grow">
+<a class="text-[#1d3500] dark:text-emerald-50 px-4 py-3 flex items-center gap-3 hover:bg-[#ffc2ca]/20 rounded-full mx-2 transition-all" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label font-bold">Học Tập</span>
+</a>
+<a class="text-[#1d3500] dark:text-emerald-50 px-4 py-3 flex items-center gap-3 hover:bg-[#ffc2ca]/20 rounded-full mx-2 transition-all" href="#">
+<span class="material-symbols-outlined">extension</span>
+<span class="font-label font-bold">Thử Thách</span>
+</a>
+<a class="text-[#1d3500] dark:text-emerald-50 px-4 py-3 flex items-center gap-3 hover:bg-[#ffc2ca]/20 rounded-full mx-2 transition-all" href="#">
+<span class="material-symbols-outlined">videogame_asset</span>
+<span class="font-label font-bold">Mini Game</span>
+</a>
+</div>
+<div class="mt-auto px-2">
+<a class="bg-[#9ae1ff] dark:bg-[#04647d] text-[#04647d] dark:text-white rounded-full px-4 py-3 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">settings_accessibility</span>
+<span class="font-label font-bold">Phụ Huynh</span>
+</a>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow pt-24 pb-12 px-4 md:pl-72 md:pr-12">
+<div class="max-w-6xl mx-auto">
+<!-- Header Section -->
+<div class="mb-10 text-center md:text-left">
+<h1 class="font-headline font-extrabold text-4xl text-primary mb-2">Tiến Độ Học Tập Của Bé</h1>
+<p class="text-on-background/70 font-medium">Theo dõi hành trình khám phá ngôn ngữ của bé yêu mỗi ngày.</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Summary Cards Column -->
+<div class="lg:col-span-1 flex flex-col gap-6">
+<!-- Summary Card: Total Score -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-[0px_20px_40px_rgba(29,53,0,0.06)] relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/10 rounded-full group-hover:scale-110 transition-transform duration-500"></div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">stars</span>
+<h3 class="text-on-surface/60 font-bold text-sm uppercase tracking-wider mb-1">Tổng số câu đúng</h3>
+<p class="text-5xl font-black text-primary tracking-tight">1,284</p>
+<div class="mt-4 flex items-center gap-2 text-outline font-bold">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>+12% so với tuần trước</span>
+</div>
+</div>
+</div>
+<!-- Summary Card: Avg Time -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-[0px_20px_40px_rgba(29,53,0,0.06)] relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-secondary/10 rounded-full group-hover:scale-110 transition-transform duration-500"></div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-secondary text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">schedule</span>
+<h3 class="text-on-surface/60 font-bold text-sm uppercase tracking-wider mb-1">Thời gian học trung bình</h3>
+<p class="text-5xl font-black text-secondary tracking-tight">25<span class="text-2xl font-bold ml-1">phút</span></p>
+<div class="mt-4 flex items-center gap-2 text-on-surface/40 font-bold">
+<span>Mỗi ngày của tuần này</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Learning Progress Chart -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-xl p-8 shadow-[0px_20px_40px_rgba(29,53,0,0.06)]">
+<div class="flex justify-between items-center mb-10">
+<div>
+<h3 class="font-headline font-extrabold text-2xl text-on-surface">Tiến độ tuần này</h3>
+<p class="text-sm text-on-surface/60">Số phút bé học mỗi ngày</p>
+</div>
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-primary-container"></div>
+<span class="text-xs font-bold text-on-surface/60 uppercase tracking-tighter">Học tập</span>
+</div>
+</div>
+<div class="h-64 flex items-end justify-between gap-2 px-2">
+<!-- Monday -->
+<div class="flex-1 flex flex-col items-center gap-3">
+<div class="w-full bg-primary-container rounded-t-xl group relative cursor-pointer" style="height: 40%">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-on-background text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">15m</div>
+</div>
+<span class="text-xs font-bold text-on-surface/60 uppercase">Thứ 2</span>
+</div>
+<!-- Tuesday -->
+<div class="flex-1 flex flex-col items-center gap-3">
+<div class="w-full bg-primary-container rounded-t-xl group relative cursor-pointer" style="height: 65%">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-on-background text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">25m</div>
+</div>
+<span class="text-xs font-bold text-on-surface/60 uppercase">Thứ 3</span>
+</div>
+<!-- Wednesday -->
+<div class="flex-1 flex flex-col items-center gap-3">
+<div class="w-full bg-primary rounded-t-xl group relative cursor-pointer shadow-lg shadow-primary/20" style="height: 85%">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-on-background text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">35m</div>
+</div>
+<span class="text-xs font-extrabold text-primary uppercase">Thứ 4</span>
+</div>
+<!-- Thursday -->
+<div class="flex-1 flex flex-col items-center gap-3">
+<div class="w-full bg-primary-container rounded-t-xl group relative cursor-pointer" style="height: 50%">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-on-background text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">20m</div>
+</div>
+<span class="text-xs font-bold text-on-surface/60 uppercase">Thứ 5</span>
+</div>
+<!-- Friday -->
+<div class="flex-1 flex flex-col items-center gap-3">
+<div class="w-full bg-primary-container rounded-t-xl group relative cursor-pointer" style="height: 70%">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-on-background text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">28m</div>
+</div>
+<span class="text-xs font-bold text-on-surface/60 uppercase">Thứ 6</span>
+</div>
+<!-- Saturday -->
+<div class="flex-1 flex flex-col items-center gap-3">
+<div class="w-full bg-primary-container rounded-t-xl group relative cursor-pointer" style="height: 30%">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-on-background text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">12m</div>
+</div>
+<span class="text-xs font-bold text-on-surface/60 uppercase">Thứ 7</span>
+</div>
+<!-- Sunday -->
+<div class="flex-1 flex flex-col items-center gap-3">
+<div class="w-full bg-secondary-container/50 border-2 border-dashed border-secondary-container rounded-t-xl" style="height: 20%"></div>
+<span class="text-xs font-bold text-on-surface/20 uppercase">CN</span>
+</div>
+</div>
+</div>
+<!-- Score Statistics Table -->
+<div class="lg:col-span-3 bg-surface-container-lowest rounded-xl shadow-[0px_20px_40px_rgba(29,53,0,0.06)] overflow-hidden">
+<div class="p-8 flex justify-between items-center bg-surface-container-low/50">
+<h3 class="font-headline font-extrabold text-2xl text-on-surface">Thống kê điểm số</h3>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-bold text-sm hover:scale-105 transition-all shadow-md">Xuất báo cáo</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/30">
+<th class="px-8 py-5 text-on-surface/40 uppercase text-xs font-black tracking-widest">Bé (Name/ID)</th>
+<th class="px-8 py-5 text-on-surface/40 uppercase text-xs font-black tracking-widest">Số câu đúng</th>
+<th class="px-8 py-5 text-on-surface/40 uppercase text-xs font-black tracking-widest">Tiến độ %</th>
+<th class="px-8 py-5 text-on-surface/40 uppercase text-xs font-black tracking-widest">Ngày giờ chơi</th>
+<th class="px-8 py-5 text-on-surface/40 uppercase text-xs font-black tracking-widest">Hành động</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/20 transition-colors">
+<td class="px-8 py-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center font-bold text-tertiary">M</div>
+<div>
+<p class="font-bold text-on-surface">Minh Anh</p>
+<p class="text-xs text-on-surface/40">ID: BE1024</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-6">
+<span class="font-black text-xl text-primary">24/25</span>
+</td>
+<td class="px-8 py-6">
+<div class="w-32 h-2 bg-surface-container-low rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 96%"></div>
+</div>
+</td>
+<td class="px-8 py-6 text-on-surface/60 font-medium">15/05/2024 - 14:30</td>
+<td class="px-8 py-6">
+<button class="material-symbols-outlined text-on-surface/20 hover:text-primary transition-colors">info</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/20 transition-colors">
+<td class="px-8 py-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center font-bold text-secondary">B</div>
+<div>
+<p class="font-bold text-on-surface">Bảo Nam</p>
+<p class="text-xs text-on-surface/40">ID: BE1025</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-6">
+<span class="font-black text-xl text-primary">18/25</span>
+</td>
+<td class="px-8 py-6">
+<div class="w-32 h-2 bg-surface-container-low rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 72%"></div>
+</div>
+</td>
+<td class="px-8 py-6 text-on-surface/60 font-medium">15/05/2024 - 10:15</td>
+<td class="px-8 py-6">
+<button class="material-symbols-outlined text-on-surface/20 hover:text-primary transition-colors">info</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/20 transition-colors">
+<td class="px-8 py-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center font-bold text-primary">L</div>
+<div>
+<p class="font-bold text-on-surface">Linh Chi</p>
+<p class="text-xs text-on-surface/40">ID: BE1026</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-6">
+<span class="font-black text-xl text-primary">22/25</span>
+</td>
+<td class="px-8 py-6">
+<div class="w-32 h-2 bg-surface-container-low rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 88%"></div>
+</div>
+</td>
+<td class="px-8 py-6 text-on-surface/60 font-medium">14/05/2024 - 19:45</td>
+<td class="px-8 py-6">
+<button class="material-symbols-outlined text-on-surface/20 hover:text-primary transition-colors">info</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-6 flex flex-col items-center gap-2 opacity-60 font-body text-sm text-[#834b55] dark:text-[#ffc2ca] bg-transparent no-border">
+<p>© 2024 The Playful Voyager - Học Tiếng Việt Thật Vui</p>
+<div class="flex gap-6">
+<a class="hover:underline hover:font-bold text-[#04647d] transition-all" href="#">Cài đặt</a>
+<a class="hover:underline hover:font-bold text-[#04647d] transition-all" href="#">Hướng dẫn</a>
+</div>
+</footer>
+<!-- Glassmorphism Modal / Parental Gate Placeholder -->
+<div class="fixed bottom-8 right-8 z-50">
+<button class="w-16 h-16 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-3xl">question_mark</span>
+</button>
+</div>
+</body></html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#98f500",
+              "surface-tint": "#04647d",
+              "tertiary": "#6e5a00",
+              "on-primary-fixed": "#003d4f",
+              "surface-container-lowest": "#ffffff",
+              "primary": "#04647d",
+              "inverse-primary": "#9ae1ff",
+              "on-secondary-fixed": "#55252f",
+              "on-background": "#1d3500",
+              "tertiary-fixed-dim": "#efcc4b",
+              "inverse-on-surface": "#6bae07",
+              "secondary-fixed": "#ffc2ca",
+              "on-primary-fixed-variant": "#005c74",
+              "error-dim": "#9f0519",
+              "surface-bright": "#e6ffc5",
+              "on-secondary-fixed-variant": "#77404a",
+              "on-tertiary-fixed-variant": "#695600",
+              "outline": "#508400",
+              "on-tertiary-fixed": "#483a00",
+              "surface-container": "#acff46",
+              "on-primary-container": "#005267",
+              "inverse-surface": "#061100",
+              "secondary": "#834b55",
+              "primary-dim": "#00576e",
+              "secondary-container": "#ffc2ca",
+              "on-surface": "#1d3500",
+              "primary-fixed": "#9ae1ff",
+              "on-tertiary-container": "#5e4d00",
+              "tertiary-container": "#feda57",
+              "surface": "#e6ffc5",
+              "surface-variant": "#98f500",
+              "surface-container-low": "#d2ff9c",
+              "on-primary": "#e3f6ff",
+              "on-surface-variant": "#3d6600",
+              "secondary-fixed-dim": "#f9b0bb",
+              "background": "#e6ffc5",
+              "on-error-container": "#570008",
+              "secondary-dim": "#764049",
+              "primary-fixed-dim": "#8cd3f0",
+              "tertiary-fixed": "#feda57",
+              "on-secondary": "#ffeff0",
+              "surface-container-high": "#9ffb21",
+              "outline-variant": "#7bbf22",
+              "surface-dim": "#92ec00",
+              "on-error": "#ffefee",
+              "error-container": "#fb5151",
+              "error": "#b31b25",
+              "tertiary-dim": "#604e00",
+              "on-secondary-container": "#6c3841",
+              "on-tertiary": "#fff2d0",
+              "primary-container": "#9ae1ff"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bubble-float {
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.05));
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-background min-h-screen overflow-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center w-full px-6 py-4 bg-[#e6ffc5] dark:bg-emerald-950/20 no-border bg-surface-container-low">
+<div class="flex items-center gap-4">
+<span class="text-2xl font-black text-[#04647d] dark:text-[#9ae1ff] tracking-tight">Chữ Cái Vui Vẻ</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-[#1d3500]/60 dark:text-emerald-100/60 font-['Plus_Jakarta_Sans'] font-bold text-lg hover:scale-105 transition-transform" href="#">Học Tập</a>
+<a class="text-[#04647d] font-extrabold font-['Plus_Jakarta_Sans'] text-lg hover:scale-105 transition-transform" href="#">Câu Đố</a>
+<a class="text-[#1d3500]/60 dark:text-emerald-100/60 font-['Plus_Jakarta_Sans'] font-bold text-lg hover:scale-105 transition-transform" href="#">Trò Chơi</a>
+</div>
+<button class="material-symbols-outlined text-[#04647d] text-3xl hover:scale-105 transition-transform">account_circle</button>
+</div>
+</header>
+<!-- SideNavBar (Desktop Only) -->
+<aside class="hidden md:flex fixed left-0 top-0 h-screen w-64 flex-col py-8 z-40 bg-white dark:bg-slate-900 rounded-r-[3rem] no-border tonal-layering shadow-[0px_20px_40px_rgba(29,53,0,0.06)] pt-24">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden">
+<img alt="Bé" data-alt="A cute, friendly illustrated baby character with a bright smile and big eyes, soft pastel art style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd-RUNCTJ8ydbv1mgmQMOWoA6VsrYchTJ5T2BFfLyfCOOmNwIPW_xfDZ5ZsiBNIcttcyqqqoNT4sl20TQwdV_cCRoCl4nFqcj57gZiILhJcOX6BEDCwVKR4yBVg4CG38MK1b5LkIhbcwPMhfBEdgA4oSdTSMdtaYM9uSsL6-Rq4AbFhejovDwLmC6gCoNAm7cYwu2jhKxiazwoOdZW8yEUgvvvTwKGpklHLAq7JzKLO9szXXqUVnGvprtVtgQxLZ6JX-ZM7TvjKJm6"/>
+</div>
+<div>
+<h3 class="font-headline font-bold text-[#04647d]">Chào bé!</h3>
+<p class="text-xs text-on-surface-variant">Hôm nay học chữ gì nhỉ?</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="text-[#1d3500] dark:text-emerald-50 px-4 py-3 flex items-center gap-3 mx-2 hover:bg-[#ffc2ca]/20 dark:hover:bg-rose-900/20 rounded-full transition-all" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-headline font-bold text-md">Học Tập</span>
+</a>
+<a class="bg-[#9ae1ff] dark:bg-[#04647d] text-[#04647d] dark:text-white rounded-full mx-2 px-4 py-3 flex items-center gap-3 shadow-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">quiz</span>
+<span class="font-headline font-bold text-md">Câu Đố</span>
+</a>
+<a class="text-[#1d3500] dark:text-emerald-50 px-4 py-3 flex items-center gap-3 mx-2 hover:bg-[#ffc2ca]/20 dark:hover:bg-rose-900/20 rounded-full transition-all" href="#">
+<span class="material-symbols-outlined">videogame_asset</span>
+<span class="font-headline font-bold text-md">Trò Chơi</span>
+</a>
+</nav>
+<div class="mt-auto px-2">
+<a class="text-[#1d3500] dark:text-emerald-50 px-4 py-3 flex items-center gap-3 hover:bg-[#ffc2ca]/20 dark:hover:bg-rose-900/20 rounded-full transition-all" href="#">
+<span class="material-symbols-outlined">settings_accessibility</span>
+<span class="font-headline font-bold text-md">Phụ Huynh</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 pt-24 min-h-screen relative flex flex-col items-center justify-center px-4">
+<!-- Background Decorative Elements -->
+<div class="absolute inset-0 pointer-events-none overflow-hidden">
+<div class="absolute top-10 left-10 w-32 h-32 bg-secondary-container/30 rounded-full blur-3xl"></div>
+<div class="absolute bottom-20 right-10 w-64 h-64 bg-primary-container/20 rounded-full blur-3xl"></div>
+<div class="absolute top-1/2 left-1/4 w-48 h-48 bg-tertiary-container/20 rounded-full blur-3xl"></div>
+</div>
+<!-- Question Section -->
+<div class="relative z-10 text-center mb-12">
+<div class="inline-flex items-center gap-6 bg-surface-container-lowest p-8 rounded-xl shadow-lg border-4 border-white">
+<button class="w-24 h-24 rounded-full bg-primary flex items-center justify-center text-white hover:scale-110 active:scale-95 transition-all duration-300 shadow-md">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+</button>
+<h1 class="font-headline font-extrabold text-4xl md:text-5xl text-primary tracking-tight">
+                    Bé hãy tìm chữ <span class="text-secondary">A</span> nào!
+                </h1>
+</div>
+</div>
+<!-- Floating Bubbles Grid -->
+<div class="relative z-10 grid grid-cols-2 gap-12 md:gap-24 max-w-4xl w-full px-4">
+<!-- Wrong Answer: B -->
+<button class="group relative aspect-square flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-full border-8 border-transparent hover:border-white transition-all duration-300 hover:scale-105 bubble-float cursor-pointer">
+<div class="absolute inset-0 bg-gradient-to-br from-[#ffc2ca]/40 to-transparent rounded-full"></div>
+<span class="font-headline font-black text-8xl md:text-[10rem] text-[#834b55] drop-shadow-sm select-none">B</span>
+</button>
+<!-- Correct Answer: A -->
+<button class="group relative aspect-square flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-full border-8 border-transparent hover:border-white transition-all duration-300 hover:scale-105 bubble-float cursor-pointer">
+<div class="absolute inset-0 bg-gradient-to-br from-[#9ae1ff]/40 to-transparent rounded-full"></div>
+<span class="font-headline font-black text-8xl md:text-[10rem] text-[#04647d] drop-shadow-sm select-none">A</span>
+</button>
+<!-- Wrong Answer: C -->
+<button class="group relative aspect-square flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-full border-8 border-transparent hover:border-white transition-all duration-300 hover:scale-105 bubble-float cursor-pointer">
+<div class="absolute inset-0 bg-gradient-to-br from-[#feda57]/40 to-transparent rounded-full"></div>
+<span class="font-headline font-black text-8xl md:text-[10rem] text-[#6e5a00] drop-shadow-sm select-none">C</span>
+</button>
+<!-- Wrong Answer: D -->
+<button class="group relative aspect-square flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-full border-8 border-transparent hover:border-white transition-all duration-300 hover:scale-105 bubble-float cursor-pointer">
+<div class="absolute inset-0 bg-gradient-to-br from-[#acff46]/40 to-transparent rounded-full"></div>
+<span class="font-headline font-black text-8xl md:text-[10rem] text-[#1d3500] drop-shadow-sm select-none">D</span>
+</button>
+</div>
+<!-- Mascot Helper -->
+<div class="absolute bottom-10 right-10 z-20 w-48 h-48 pointer-events-none">
+<img alt="Mascot" data-alt="A friendly cartoon giraffe mascot with soft spots and big eyes, wearing a graduation cap, waving happily, 3D claymation style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPbk7BD-dTorcQ4rhAxylmPQ3LaetEpsFvRXevCnyNvjHgxQWtOYbtgu9HCSlxqOlLlBE82hPxZHhnQzmrfWYkiASKNgzaJ21GFqljuNEZX2GdsNeqw-H1bGt4GqzPuTAuSJ3vfUNxW8TCTIDq0n65_y-hhV-BW471fYf_dsqhzwMVIBozQVjRkQTSNOpQ_DEXGvfsVnoL8LQmu4p-qan1DcAlWM8GDN85ehzMDJjpwgOVAePIeeKdzThTUeSTXZMdzNpnLDDn3XkU"/>
+</div>
+</main>
+<!-- Footer -->
+<footer class="md:ml-64 w-full py-6 flex flex-col items-center gap-2 opacity-60 font-['Be_Vietnam_Pro'] text-sm text-[#834b55] dark:text-[#ffc2ca]">
+<p>© 2024 The Playful Voyager - Học Tiếng Việt Thật Vui</p>
+<div class="flex gap-4">
+<a class="hover:underline text-[#1d3500]/40" href="#">Cài đặt</a>
+<a class="hover:underline text-[#1d3500]/40" href="#">Hướng dẫn</a>
+</div>
+</footer>
+</body></html>

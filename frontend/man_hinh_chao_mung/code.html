@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiếng Việt Bé Yêu - Chào Mừng</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&family=Be+Vietnam+Pro:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-sky: #9ae1ff;
+            --primary-action: #04647d;
+            --secondary-soft-pink: #ffc2ca;
+            --secondary-heart: #834b55;
+            --tertiary-sunny: #feda57;
+            --surface-grass: #e6ffc5;
+            --surface-container-low: #f3ffe0;
+            --surface-container-lowest: #ffffff;
+            --on-background: #1d3500;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--surface-grass);
+            font-family: 'Be Vietnam Pro', sans-serif;
+            color: var(--on-background);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Trang trí mây bay lơ lửng */
+        .cloud {
+            position: absolute;
+            background: white;
+            border-radius: 50px;
+            opacity: 0.6;
+            z-index: -1;
+            animation: float 10s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(20px); }
+        }
+
+        .onboarding-card {
+            background-color: var(--surface-container-lowest);
+            padding: 2.5rem;
+            border-radius: 3rem;
+            box-shadow: 0px 20px 40px rgba(29, 53, 0, 0.1);
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+            border: 8px solid var(--surface-container-low);
+        }
+
+        h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(15deg, var(--primary-action), var(--primary-sky));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .name-input {
+            width: 100%;
+            padding: 1.2rem;
+            border: 3px solid var(--primary-sky);
+            background-color: var(--surface-container-low);
+            border-radius: 2rem;
+            font-size: 1.3rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            text-align: center;
+            color: var(--primary-action);
+            margin: 1.5rem 0;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .character-selector {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .char-option {
+            width: 80px;
+            height: 80px;
+            background-color: var(--secondary-soft-pink);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 4px solid transparent;
+        }
+
+        .char-option.selected {
+            background-color: var(--tertiary-sunny);
+            transform: scale(1.2);
+            border-color: var(--primary-action);
+            box-shadow: 0 10px 20px rgba(254, 218, 87, 0.5);
+        }
+
+        .btn-start {
+            background: linear-gradient(15deg, var(--primary-action), var(--primary-sky));
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 3rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0px 8px 15px rgba(4, 100, 125, 0.3);
+            transition: all 0.2s;
+        }
+
+        .btn-start:hover {
+            filter: brightness(1.1);
+            transform: translateY(-3px);
+        }
+
+        .btn-start:active {
+            transform: scale(0.95);
+        }
+
+        .parent-link {
+            display: block;
+            margin-top: 1.5rem;
+            color: var(--secondary-heart);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cloud" style="width: 150px; height: 50px; top: 10%; left: 5%;"></div>
+    <div class="cloud" style="width: 120px; height: 40px; bottom: 15%; right: 10%; animation-delay: 2s;"></div>
+
+    <div class="onboarding-card">
+        <h1>Chào bé yêu!</h1>
+        <p style="margin: 0;">Bé tên là gì nhỉ?</p>
+        
+        <input type="text" id="childName" class="name-input" placeholder="Tên của bé..." maxlength="10">
+
+        <p style="margin-bottom: 10px;">Chọn bạn nhỏ đồng hành:</p>
+        <div class="character-selector">
+            <div class="char-option" onclick="selectChar(this, '🐥')">🐥</div>
+            <div class="char-option" onclick="selectChar(this, '🐱')">🐱</div>
+            <div class="char-option" onclick="selectChar(this, '🐰')">🐰</div>
+        </div>
+
+        <button class="btn-start" onclick="startGame()">Bắt đầu học!</button>
+        
+        <a href="../danh_cho_phu_huynh/code.html" class="parent-link">Dành cho phụ huynh (Đăng nhập)</a>
+    </div>
+
+    <script>
+        let selectedAvatar = "";
+
+        // Hàm chọn nhân vật
+        function selectChar(element, emoji) {
+            document.querySelectorAll('.char-option').forEach(el => el.classList.remove('selected'));
+            element.classList.add('selected');
+            selectedAvatar = emoji;
+            
+            // Hiệu ứng âm thanh giả lập
+            const audio = new Audio('https://www.soundjay.com/buttons/button-37.mp3');
+            audio.volume = 0.2;
+            audio.play().catch(() => {}); 
+        }
+
+        // Hàm bắt đầu trò chơi
+        function startGame() {
+            const name = document.getElementById('childName').value.trim();
+            
+            if(!name) {
+                alert("Bé ơi, hãy nhập tên để mình cùng chơi nhé!");
+                return;
+            }
+            if(!selectedAvatar) {
+                alert("Bé hãy chọn một bạn nhỏ đồng hành nhé!");
+                return;
+            }
+
+            // Lưu thông tin bé vào LocalStorage để các trang sau có thể sử dụng (ví dụ hiện tên bé ở trang học tập)
+            localStorage.setItem('be_name', name);
+            localStorage.setItem('be_avatar', selectedAvatar);
+
+            // Chuyển sang trang học tập
+            // Lưu ý: Dùng đường dẫn tương đối ../ để nhảy ra khỏi folder man_hinh_chao_mung
+            window.location.href = "../trang_hoc_tap/code.html";
+        }
+
+        // Hiệu ứng Wobble tự động
+        setInterval(() => {
+            const activeChar = document.querySelector('.char-option.selected');
+            if (activeChar) {
+                const rotate = (Math.random() * 6 - 3).toFixed(2);
+                activeChar.style.transform = `scale(1.2) rotate(${rotate}deg)`;
+            }
+        }, 500);
+    </script>
+</body>
+</html>

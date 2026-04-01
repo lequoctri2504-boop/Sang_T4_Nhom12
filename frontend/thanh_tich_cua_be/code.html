@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tiến Độ Học Tập - Chữ Cái Vui Vẻ</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#04647d",
+              "primary-container": "#9ae1ff",
+              "on-primary": "#e3f6ff",
+              "secondary": "#834b55",
+              "secondary-container": "#ffc2ca",
+              "tertiary": "#6e5a00",
+              "tertiary-container": "#feda57",
+              "background": "#e6ffc5",
+              "surface": "#e6ffc5",
+              "surface-container-low": "#d2ff9c",
+              "surface-container-lowest": "#ffffff",
+              "on-background": "#1d3500",
+              "on-surface": "#1d3500",
+              "on-surface-variant": "#3d6600",
+              "outline": "#508400"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {
+              "DEFAULT": "1rem",
+              "lg": "2rem",
+              "xl": "3rem",
+              "3xl": "2.5rem",
+              "full": "9999px"
+            },
+            animation: {
+              'bounce-subtle': 'bounce-subtle 2s ease-in-out infinite',
+            },
+            keyframes: {
+              'bounce-subtle': {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              }
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tactile-shadow {
+            box-shadow: 0px 20px 40px rgba(29, 53, 0, 0.06);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: rgba(4, 100, 125, 0.2);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar (Consistent with Screen 4/5) -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#e6ffc5] dark:bg-emerald-950/20 flex justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-4">
+<span class="text-2xl font-black text-[#04647d] dark:text-[#9ae1ff] tracking-tight font-headline">Chữ Cái Vui Vẻ</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<nav class="flex gap-6">
+<a class="text-[#1d3500]/60 font-headline font-bold hover:scale-105 transition-transform" href="#">Học Tập</a>
+<a class="text-[#1d3500]/60 font-headline font-bold hover:scale-105 transition-transform" href="#">Thử Thách</a>
+<a class="text-[#1d3500]/60 font-headline font-bold hover:scale-105 transition-transform" href="#">Mini Game</a>
+</nav>
+</div>
+<div class="flex items-center gap-3">
+<button class="material-symbols-outlined text-[#04647d] text-3xl hover:scale-105 active:scale-95 transition-all">account_circle</button>
+</div>
+</header>
+<!-- SideNavBar (Consistent with Screen 4/5) -->
+<aside class="fixed left-0 top-0 h-screen w-64 bg-white dark:bg-slate-900 hidden lg:flex flex-col py-8 z-40 rounded-r-[3rem] shadow-[0px_20px_40px_rgba(29,53,0,0.06)] mt-20">
+<div class="px-6 mb-8">
+<div class="flex flex-col items-center gap-2">
+<div class="w-20 h-20 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden border-4 border-white shadow-sm">
+<img alt="Avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpodeQNbXr1HHfCDl3vT6fXc2RyTieNzHti5VBupAtNyjQ_1zycVv-Ar774Y6VKoNJXuY9oc9kkm-MbsCPnCGRkQf1cNBG5QdDMInQ6Wb-ILmxfEPmy3E81-UgYu07Z62cqWKfrVh64BA5DM3xm_AzQ7ipcK1tcd7hAf7McU2tO70a_NlmrI3LMrKuUWF0W4pK1lbBkEKjz7PYRVmXytHl1QdxZTuVaM3qI9m9bQctvxiMQ40F6KEjr9PVh1TqLM3CwgQbG1NlRqHx"/>
+</div>
+<div class="text-center">
+<p class="font-headline font-bold text-[#04647d]">Chào bé!</p>
+<p class="text-xs text-[#1d3500]/60">Tiến độ hôm nay thế nào?</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col flex-grow px-4 space-y-1">
+<a class="text-[#1d3500] px-4 py-3 flex items-center gap-3 font-headline font-bold hover:bg-[#9ae1ff]/20 rounded-full transition-all" href="#">
+<span class="material-symbols-outlined">school</span>
+<span>Học Tập</span>
+</a>
+<a class="text-[#1d3500] px-4 py-3 flex items-center gap-3 font-headline font-bold hover:bg-[#9ae1ff]/20 rounded-full transition-all" href="#">
+<span class="material-symbols-outlined">extension</span>
+<span>Thử Thách</span>
+</a>
+<a class="text-[#1d3500] px-4 py-3 flex items-center gap-3 font-headline font-bold hover:bg-[#9ae1ff]/20 rounded-full transition-all" href="#">
+<span class="material-symbols-outlined">videogame_asset</span>
+<span>Mini Game</span>
+</a>
+<div class="pt-4 mt-4 border-t border-on-surface/5">
+<a class="bg-[#9ae1ff] text-[#04647d] rounded-full px-4 py-3 flex items-center gap-3 font-headline font-extrabold shadow-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">insights</span>
+<span>Thống Kê</span>
+</a>
+</div>
+</nav>
+<div class="mt-auto px-4">
+<a class="text-[#1d3500] px-4 py-3 flex items-center gap-3 font-headline font-bold hover:bg-[#ffc2ca]/20 rounded-full transition-all" href="#">
+<span class="material-symbols-outlined">settings_accessibility</span>
+<span>Phụ Huynh</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="lg:ml-64 pt-24 pb-12 px-6 min-h-screen">
+<div class="max-w-6xl mx-auto">
+<!-- Hero Header -->
+<div class="mb-10 text-center lg:text-left">
+<h1 class="font-headline font-black text-4xl text-primary mb-2 tracking-tight">Thành Tích Của Bé</h1>
+<p class="text-on-surface-variant font-medium text-lg">Cùng nhìn lại những bước chân nhỏ bé trên hành trình khám phá tiếng Việt!</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column: Summary Cards -->
+<div class="lg:col-span-1 space-y-6">
+<!-- Total Correct Answers Card -->
+<div class="bg-surface-container-lowest rounded-3xl p-8 tactile-shadow relative overflow-hidden group animate-bounce-subtle">
+<div class="absolute -right-6 -top-6 w-32 h-32 bg-primary-container/30 rounded-full transition-transform duration-700 group-hover:scale-150"></div>
+<div class="relative z-10">
+<div class="w-14 h-14 bg-primary-container rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<h3 class="text-on-surface/60 font-bold text-sm uppercase tracking-widest mb-1">Tổng câu đúng</h3>
+<p class="text-6xl font-black text-primary tracking-tighter">1,284</p>
+<div class="mt-4 flex items-center gap-2 text-outline font-bold text-sm bg-surface-container-low w-fit px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>+12% tuần này</span>
+</div>
+</div>
+</div>
+<!-- Learning Time Card -->
+<div class="bg-surface-container-lowest rounded-3xl p-8 tactile-shadow relative overflow-hidden group">
+<div class="absolute -right-6 -top-6 w-32 h-32 bg-secondary-container/30 rounded-full transition-transform duration-700 group-hover:scale-150"></div>
+<div class="relative z-10">
+<div class="w-14 h-14 bg-secondary-container rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+<span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">timer</span>
+</div>
+<h3 class="text-on-surface/60 font-bold text-sm uppercase tracking-widest mb-1">Thời gian học</h3>
+<p class="text-6xl font-black text-secondary tracking-tighter">25<span class="text-2xl ml-1">phút</span></p>
+<p class="text-xs text-on-surface/40 font-bold mt-2">Trung bình mỗi ngày</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Weekly Progress Chart -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-3xl p-8 tactile-shadow flex flex-col">
+<div class="flex justify-between items-center mb-10">
+<div>
+<h3 class="font-headline font-black text-2xl text-on-surface">Tiến độ tuần này</h3>
+<p class="text-sm text-on-surface/60 font-medium">Số phút bé vui học mỗi ngày</p>
+</div>
+<div class="hidden sm:flex gap-4">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary-container"></div>
+<span class="text-[10px] font-black uppercase text-on-surface/40 tracking-widest">Học tập</span>
+</div>
+</div>
+</div>
+<div class="flex-grow flex items-end justify-between gap-4 px-2 min-h-[240px]">
+<!-- Monday -->
+<div class="flex-1 flex flex-col items-center gap-4 group">
+<div class="w-full bg-[#9ae1ff] rounded-2xl hover:bg-primary transition-all duration-300 relative cursor-pointer" style="height: 45%">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">15 phút</div>
+</div>
+<span class="text-[10px] font-black text-on-surface/40 uppercase">Thứ 2</span>
+</div>
+<!-- Tuesday -->
+<div class="flex-1 flex flex-col items-center gap-4 group">
+<div class="w-full bg-[#feda57] rounded-2xl hover:bg-tertiary transition-all duration-300 relative cursor-pointer" style="height: 65%">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-tertiary text-white text-[10px] font-bold px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">25 phút</div>
+</div>
+<span class="text-[10px] font-black text-on-surface/40 uppercase">Thứ 3</span>
+</div>
+<!-- Wednesday (Active Today Highlight) -->
+<div class="flex-1 flex flex-col items-center gap-4 group">
+<div class="w-full bg-primary rounded-2xl shadow-lg shadow-primary/20 hover:scale-105 transition-all duration-300 relative cursor-pointer" style="height: 85%">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-lg opacity-100 whitespace-nowrap">35 phút</div>
+</div>
+<span class="text-[10px] font-black text-primary uppercase">Thứ 4</span>
+</div>
+<!-- Thursday -->
+<div class="flex-1 flex flex-col items-center gap-4 group">
+<div class="w-full bg-[#ffc2ca] rounded-2xl hover:bg-secondary transition-all duration-300 relative cursor-pointer" style="height: 55%">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-secondary text-white text-[10px] font-bold px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">20 phút</div>
+</div>
+<span class="text-[10px] font-black text-on-surface/40 uppercase">Thứ 5</span>
+</div>
+<!-- Friday -->
+<div class="flex-1 flex flex-col items-center gap-4 group">
+<div class="w-full bg-[#d2ff9c] rounded-2xl hover:bg-outline transition-all duration-300 relative cursor-pointer" style="height: 75%">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-outline text-white text-[10px] font-bold px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">28 phút</div>
+</div>
+<span class="text-[10px] font-black text-on-surface/40 uppercase">Thứ 6</span>
+</div>
+<!-- Saturday -->
+<div class="flex-1 flex flex-col items-center gap-4 group">
+<div class="w-full bg-[#9ae1ff] rounded-2xl hover:bg-primary transition-all duration-300 relative cursor-pointer" style="height: 35%">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">12 phút</div>
+</div>
+<span class="text-[10px] font-black text-on-surface/40 uppercase">Thứ 7</span>
+</div>
+<!-- Sunday -->
+<div class="flex-1 flex flex-col items-center gap-4 group">
+<div class="w-full bg-surface-container-low/50 border-2 border-dashed border-primary/10 rounded-2xl" style="height: 20%"></div>
+<span class="text-[10px] font-black text-on-surface/20 uppercase">CN</span>
+</div>
+</div>
+</div>
+<!-- Full Width: Detailed Table -->
+<div class="lg:col-span-3 bg-surface-container-lowest rounded-3xl tactile-shadow overflow-hidden">
+<div class="p-8 flex justify-between items-center bg-surface-container-low/20">
+<div>
+<h3 class="font-headline font-black text-2xl text-on-surface">Nhật ký học tập</h3>
+<p class="text-sm font-medium text-on-surface/60">Chi tiết kết quả các bài học gần nhất</p>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-full font-bold text-sm hover:scale-105 active:scale-95 transition-all shadow-md flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">download</span>
+<span>Xuất báo cáo</span>
+</button>
+</div>
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/10">
+<th class="px-8 py-5 text-on-surface/40 uppercase text-[10px] font-black tracking-widest">Bé học tập</th>
+<th class="px-8 py-5 text-on-surface/40 uppercase text-[10px] font-black tracking-widest text-center">Đúng/Tổng</th>
+<th class="px-8 py-5 text-on-surface/40 uppercase text-[10px] font-black tracking-widest">Tiến độ bài học</th>
+<th class="px-8 py-5 text-on-surface/40 uppercase text-[10px] font-black tracking-widest">Thời gian</th>
+<th class="px-8 py-5 text-on-surface/40 uppercase text-[10px] font-black tracking-widest text-right">Chi tiết</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-on-surface/5">
+<!-- Row 1 -->
+<tr class="hover:bg-primary-container/10 transition-colors group cursor-pointer">
+<td class="px-8 py-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center font-black text-tertiary text-xs">M</div>
+<div>
+<p class="font-bold text-on-surface">Minh Anh</p>
+<p class="text-[10px] text-on-surface/40 font-bold">ID: BE1024</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-6 text-center">
+<span class="font-black text-xl text-primary">24<span class="text-on-surface/20 mx-1">/</span>25</span>
+</td>
+<td class="px-8 py-6">
+<div class="w-full max-w-[120px] h-2.5 bg-surface-container-low rounded-full overflow-hidden p-0.5">
+<div class="bg-primary h-full rounded-full shadow-[0_0_8px_rgba(4,100,125,0.3)]" style="width: 96%"></div>
+</div>
+</td>
+<td class="px-8 py-6">
+<p class="text-sm font-bold text-on-surface/60">15/05/2024</p>
+<p class="text-[10px] font-medium text-on-surface/40">Lúc 14:30</p>
+</td>
+<td class="px-8 py-6 text-right">
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface/20 group-hover:text-primary group-hover:bg-primary/10 transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-secondary-container/10 transition-colors group cursor-pointer">
+<td class="px-8 py-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center font-black text-secondary text-xs">B</div>
+<div>
+<p class="font-bold text-on-surface">Bảo Nam</p>
+<p class="text-[10px] text-on-surface/40 font-bold">ID: BE1025</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-6 text-center">
+<span class="font-black text-xl text-primary">18<span class="text-on-surface/20 mx-1">/</span>25</span>
+</td>
+<td class="px-8 py-6">
+<div class="w-full max-w-[120px] h-2.5 bg-surface-container-low rounded-full overflow-hidden p-0.5">
+<div class="bg-secondary h-full rounded-full" style="width: 72%"></div>
+</div>
+</td>
+<td class="px-8 py-6">
+<p class="text-sm font-bold text-on-surface/60">15/05/2024</p>
+<p class="text-[10px] font-medium text-on-surface/40">Lúc 10:15</p>
+</td>
+<td class="px-8 py-6 text-right">
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface/20 group-hover:text-secondary group-hover:bg-secondary/10 transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-tertiary-container/10 transition-colors group cursor-pointer">
+<td class="px-8 py-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center font-black text-primary text-xs">L</div>
+<div>
+<p class="font-bold text-on-surface">Linh Chi</p>
+<p class="text-[10px] text-on-surface/40 font-bold">ID: BE1026</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-6 text-center">
+<span class="font-black text-xl text-primary">22<span class="text-on-surface/20 mx-1">/</span>25</span>
+</td>
+<td class="px-8 py-6">
+<div class="w-full max-w-[120px] h-2.5 bg-surface-container-low rounded-full overflow-hidden p-0.5">
+<div class="bg-tertiary h-full rounded-full" style="width: 88%"></div>
+</div>
+</td>
+<td class="px-8 py-6">
+<p class="text-sm font-bold text-on-surface/60">14/05/2024</p>
+<p class="text-[10px] font-medium text-on-surface/40">Lúc 19:45</p>
+</td>
+<td class="px-8 py-6 text-right">
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface/20 group-hover:text-tertiary group-hover:bg-tertiary/10 transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Consistent with Screen 4/5) -->
+<footer class="lg:ml-64 w-full py-8 flex flex-col items-center gap-4 bg-transparent text-[#834b55]/60 font-body text-sm mt-auto">
+<div class="flex gap-6 font-bold">
+<a class="hover:text-primary hover:underline transition-all underline-offset-4" href="#">Cài đặt</a>
+<a class="hover:text-primary hover:underline transition-all underline-offset-4" href="#">Hướng dẫn</a>
+</div>
+<p class="font-medium">© 2024 The Playful Voyager - Học Tiếng Việt Thật Vui</p>
+</footer>
+<!-- Help FAB -->
+<div class="fixed bottom-8 right-8 z-50">
+<button class="w-16 h-16 bg-primary text-white rounded-full tactile-shadow flex items-center justify-center hover:scale-110 active:scale-95 transition-all group overflow-hidden">
+<span class="material-symbols-outlined text-3xl">question_mark</span>
+<span class="absolute inset-0 bg-white/20 scale-0 group-hover:scale-100 transition-transform rounded-full"></span>
+</button>
+</div>
+</body></html>

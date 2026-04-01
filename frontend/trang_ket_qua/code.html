@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline-variant": "#7bbf22",
+              "on-error": "#ffefee",
+              "surface-tint": "#04647d",
+              "outline": "#508400",
+              "error-dim": "#9f0519",
+              "on-primary-fixed": "#003d4f",
+              "background": "#e6ffc5",
+              "secondary-dim": "#764049",
+              "on-secondary-fixed": "#55252f",
+              "tertiary-container": "#feda57",
+              "inverse-primary": "#9ae1ff",
+              "tertiary-dim": "#604e00",
+              "on-tertiary-fixed": "#483a00",
+              "tertiary": "#6e5a00",
+              "secondary-container": "#ffc2ca",
+              "secondary": "#834b55",
+              "surface-variant": "#98f500",
+              "surface-container": "#acff46",
+              "surface": "#e6ffc5",
+              "tertiary-fixed-dim": "#efcc4b",
+              "surface-bright": "#e6ffc5",
+              "on-tertiary-fixed-variant": "#695600",
+              "on-secondary-container": "#6c3841",
+              "on-primary-fixed-variant": "#005c74",
+              "secondary-fixed-dim": "#f9b0bb",
+              "on-primary-container": "#005267",
+              "primary-dim": "#00576e",
+              "surface-container-high": "#9ffb21",
+              "inverse-surface": "#061100",
+              "error": "#b31b25",
+              "on-background": "#1d3500",
+              "surface-container-low": "#d2ff9c",
+              "tertiary-fixed": "#feda57",
+              "on-tertiary-container": "#5e4d00",
+              "on-secondary": "#ffeff0",
+              "error-container": "#fb5151",
+              "secondary-fixed": "#ffc2ca",
+              "on-secondary-fixed-variant": "#77404a",
+              "on-tertiary": "#fff2d0",
+              "on-error-container": "#570008",
+              "primary-fixed-dim": "#8cd3f0",
+              "on-surface-variant": "#3d6600",
+              "primary-container": "#9ae1ff",
+              "inverse-on-surface": "#6bae07",
+              "surface-dim": "#92ec00",
+              "surface-container-lowest": "#ffffff",
+              "primary": "#04647d",
+              "on-primary": "#e3f6ff",
+              "on-surface": "#1d3500",
+              "surface-container-highest": "#98f500",
+              "primary-fixed": "#9ae1ff"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .bg-pattern {
+            background-image: radial-gradient(circle at 2px 2px, rgba(4, 100, 125, 0.05) 1px, transparent 0);
+            background-size: 32px 32px;
+        }
+        .star-glow {
+            filter: drop-shadow(0 0 15px rgba(254, 218, 87, 0.8));
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background min-h-screen flex flex-col overflow-hidden">
+<!-- Top Navigation (Shell suppressed for Focus/Success state but using styles for branding) -->
+<header class="flex justify-between items-center w-full px-6 py-4 fixed top-0 z-50">
+<div class="text-2xl font-black text-primary tracking-tight font-headline">
+            Chữ Cái Vui Vẻ
+        </div>
+<div class="flex items-center gap-4">
+<div class="bg-surface-container-low px-4 py-2 rounded-full flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-headline font-bold text-primary">1,250</span>
+</div>
+</div>
+</header>
+<!-- Main Celebratory Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center px-4 relative bg-pattern">
+<!-- Decorative Floating Elements (Confetti/Balloon substitute via divs) -->
+<div class="absolute top-20 left-10 w-12 h-12 bg-secondary-container rounded-full opacity-40 blur-sm"></div>
+<div class="absolute top-40 right-20 w-16 h-16 bg-tertiary-container rounded-full opacity-30 blur-md"></div>
+<div class="absolute bottom-40 left-1/4 w-8 h-8 bg-primary-container rounded-full opacity-50 blur-none"></div>
+<div class="absolute top-1/2 right-10 w-6 h-6 bg-secondary-dim rounded-full opacity-20"></div>
+<!-- Success Content Container -->
+<div class="max-w-2xl w-full text-center z-10">
+<!-- Result Title -->
+<h2 class="font-headline font-bold text-primary-dim opacity-70 mb-8 tracking-widest uppercase text-sm">
+                Kết Quả Của Bé
+            </h2>
+<!-- The Three Golden Stars -->
+<div class="flex justify-center items-end gap-4 mb-12">
+<!-- Star 1 -->
+<div class="w-24 h-24 sm:w-32 sm:h-32 bg-tertiary-container rounded-xl flex items-center justify-center star-glow -rotate-12 transform hover:scale-110 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-6xl sm:text-8xl text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<!-- Center Star (Hero) -->
+<div class="w-32 h-32 sm:w-40 sm:h-40 bg-tertiary-container rounded-xl flex items-center justify-center star-glow mb-8 transform hover:scale-110 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-8xl sm:text-[120px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<!-- Star 3 -->
+<div class="w-24 h-24 sm:w-32 sm:h-32 bg-tertiary-container rounded-xl flex items-center justify-center star-glow rotate-12 transform hover:scale-110 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-6xl sm:text-8xl text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<!-- Celebratory Message -->
+<div class="space-y-4 mb-16">
+<h1 class="font-headline text-5xl sm:text-6xl font-black text-primary leading-tight">
+                    Bé Giỏi Quá!
+                </h1>
+<p class="font-headline text-2xl sm:text-3xl font-bold text-secondary">
+                    Chúc Mừng Bé!
+                </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+<!-- Chơi Lại Button -->
+<button class="group relative w-full sm:w-64">
+<div class="absolute inset-0 bg-primary-dim rounded-xl translate-y-2"></div>
+<div class="relative bg-primary text-on-primary font-headline font-extrabold text-xl py-6 px-8 rounded-xl flex items-center justify-center gap-3 active:translate-y-1 transition-all">
+<span class="material-symbols-outlined text-3xl">replay</span>
+                        Chơi Lại
+                    </div>
+</button>
+<!-- Về Trang Chủ Button -->
+<button class="group relative w-full sm:w-64">
+<div class="absolute inset-0 bg-secondary-dim rounded-xl translate-y-2"></div>
+<div class="relative bg-secondary text-on-secondary font-headline font-extrabold text-xl py-6 px-8 rounded-xl flex items-center justify-center gap-3 active:translate-y-1 transition-all">
+<span class="material-symbols-outlined text-3xl">home</span>
+                        Về Trang Chủ
+                    </div>
+</button>
+</div>
+</div>
+<!-- Decorative Illustration Layer -->
+<div class="absolute bottom-0 left-0 right-0 h-48 pointer-events-none opacity-20">
+<img alt="abstract playful landscape" class="w-full h-full object-cover" data-alt="whimsical 3D digital illustration of soft clouds and rolling green hills with scattered colorful toy blocks in a bright sunlit playroom atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8Dlfn8JIh5tbytForNmMudV-hLav8Xcu6l_FCkKBgLbexnI_5cF4QsJv41wFZrxaxMTlSK63dltPKo8KwgxkynjmHRMrhY5vaLLDXet0oOHtnQQlgnuDixP5d4JbTqzeG-laktClXilWIIpF0mVL2xHalWqtBGb8J9mrD5fnwO8JKepDU0KG4mMlvvLbyR43RZ3CQi5CQv2rqISfxNYvGyfYZ4kcvGSvNNMEy0wSsi2wUbm9Q9nsLaGA8V3E3GQZKFGJK4wl12NQL"/>
+</div>
+</main>
+<!-- Footer (Using styles from JSON) -->
+<footer class="w-full py-6 flex flex-col items-center gap-2 opacity-60 font-body text-sm text-secondary">
+<p>© 2024 The Playful Voyager - Học Tiếng Việt Thật Vui</p>
+<div class="flex gap-4">
+<span class="hover:underline cursor-pointer">Cài đặt</span>
+<span class="hover:underline cursor-pointer">Hướng dẫn</span>
+</div>
+</footer>
+<!-- Bottom Nav Shell (Suppressed for results screen but included as hidden container to satisfy logic requirements) -->
+<nav class="md:hidden hidden bg-surface-container-low fixed bottom-0 w-full px-6 py-3 flex justify-around">
+<!-- Hidden for focused journey -->
+</nav>
+</body></html>

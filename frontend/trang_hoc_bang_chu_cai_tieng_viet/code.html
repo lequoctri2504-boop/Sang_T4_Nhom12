@@ -331,3 +331,30 @@
 </button>
 </div>
 </body></html>
+
+async function loadLetters() {
+    try {
+        const response = await fetch(`${CONFIG.API_BASE_URL}/letters`);
+        const data = await response.json();
+        
+        const container = document.getElementById('alphabet-container'); // ID của vùng chứa chữ cái
+        container.innerHTML = ''; 
+
+        data.forEach(item => {
+            container.innerHTML += `
+                <div class="letter-card" onclick="goToDetail(${item.id})">
+                    <h1>${item.letter}</h1>
+                    <p>${item.example_word}</p>
+                </div>
+            `;
+        });
+    } catch (error) {
+        console.error("Không thể tải bảng chữ cái:", error);
+    }
+}
+
+function goToDetail(id) {
+    window.location.href = `../trang_chi_tiet_chu_cai/code.html?id=${id}`;
+}
+
+loadLetters();

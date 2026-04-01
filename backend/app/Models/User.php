@@ -2,31 +2,29 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Database\Factories\UserFactory;
-use Illuminate\Database\Eloquent\Attributes\Fillable;
-use Illuminate\Database\Eloquent\Attributes\Hidden;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
-#[Fillable(['name', 'email', 'password'])]
-#[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
-    /** @use HasFactory<UserFactory> */
-    use HasFactory, Notifiable;
+    protected $fillable = ['name', 'email', 'password', 'role'];
+    protected $hidden   = ['password'];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
+    // 1 ba mẹ có nhiều điểm số
+    public function scores()
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        return $this->hasMany(Score::class);
+    }
+
+    // 1 ba mẹ có nhiều sticker đã mở khóa
+    public function stickers()
+    {
+        return $this->belongsToMany(Sticker::class, 'user_stickers')
+                    ->withPivot('unlocked_at');
+    }
+
+    // Kiểm tra có phải admin không
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
     }
 }

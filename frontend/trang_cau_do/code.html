@@ -188,4 +188,45 @@
 <a class="hover:underline text-[#1d3500]/40" href="#">Hướng dẫn</a>
 </div>
 </footer>
-</body></html>
+</body>
+</html>
+
+// assets/js/quiz.js
+async function loadQuiz() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const letterId = urlParams.get('id');
+
+    const response = await fetch(`${CONFIG.API_BASE_URL}/quizzes?letter_id=${letterId}`);
+    const quizzes = await response.json();
+
+    if(quizzes.length > 0) {
+        renderQuiz(quizzes[0]); // Hiển thị câu hỏi đầu tiên
+    }
+}
+
+function renderQuiz(quiz) {
+    const questionEl = document.getElementById('question');
+    const optionsEl = document.getElementById('options-container');
+
+    questionEl.innerText = quiz.question;
+    optionsEl.innerHTML = '';
+
+    // Giả sử options lưu dạng JSON trong DB
+    const options = JSON.parse(quiz.options); 
+    options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'btn btn-outline-primary m-2';
+        btn.innerText = opt;
+        btn.onclick = () => checkAnswer(opt, quiz.answer);
+        optionsEl.appendChild(btn);
+    });
+}
+
+function checkAnswer(selected, correct) {
+    if(selected === correct) {
+        alert("Chính xác! Bé giỏi quá! 🎉");
+        // Gọi API cộng điểm tại đây
+    } else {
+        alert("Sai rồi, bé thử lại nhé! 🌸");
+    }
+}

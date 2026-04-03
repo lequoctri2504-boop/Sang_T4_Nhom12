@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8"/>
+    <title>Bé Ghép Chữ Vui</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/quiz.css">
+    <link rel="stylesheet" href="assets/css/quiz_ghepchu.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#e6ffc5] min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+    
+    <div class="absolute top-8 right-8 bg-[#feda57] px-6 py-2 rounded-full font-bold text-[#6e5a00] shadow-sm z-10">
+        Ngôi sao: ⭐ <span id="star-count">0</span>
+    </div>
+
+    <div class="absolute top-8 bg-white px-6 py-2 rounded-full shadow-sm font-bold text-[#04647d]">
+        Câu hỏi <span id="q-number">1</span>/5
+    </div>
+
+    <h1 class="text-3xl font-black text-[#04647d] mb-12 font-['Plus_Jakarta_Sans']">
+        Bé hãy kéo chữ <span id="target-letter-name">G</span> vào ô trống!
+    </h1>
+    
+    <div class="flex flex-col lg:flex-row items-center gap-16">
+        <div id="drop-zone" ondragover="allowDrop(event)" ondrop="drop(event)" 
+             class="relative w-80 h-[26rem] bg-white border-dashed border-4 border-[#04647d]/30 rounded-[3rem] flex items-center justify-center shadow-xl transition-all">
+        </div>
+
+        <div id="options-container" class="grid grid-cols-2 gap-4">
+        </div>
+    </div>
+
+    <div id="feedback-overlay" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center hidden backdrop-blur-sm p-6">
+        <div class="bg-white rounded-[3rem] p-12 shadow-2xl text-center max-w-lg w-full scale-90 animate-popIn relative">
+            <div class="absolute -top-16 left-1/2 -translate-x-1/2 flex gap-2">
+                <span class="text-6xl animate-bounceDelay">⭐</span>
+                <span class="text-8xl animate-bounce">🐮</span>
+                <span class="text-6xl animate-bounceDelay">⭐</span>
+            </div>
+            <h2 class="text-5xl font-black text-[#7bbf22] mb-4 mt-12">Tuyệt Vời!</h2>
+            <p class="text-2xl text-[#04647d] font-bold mb-10">Bé làm tốt lắm!</p>
+            <button onclick="nextStep()" class="w-full bg-[#04647d] text-white py-5 rounded-full font-bold text-2xl shadow-lg">Tiếp tục nào!</button>
+        </div>
+    </div>
+
+    <div id="fail-overlay" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center hidden backdrop-blur-sm p-6">
+        <div class="bg-white rounded-[3rem] p-12 shadow-2xl text-center max-w-lg w-full scale-90 animate-popIn relative">
+            <div class="text-8xl mb-4">😢</div>
+            <h2 class="text-5xl font-black text-[#b31b25] mb-4">Tiếc quá!</h2>
+            <p class="text-2xl text-[#834b55] font-bold mb-10">Nhầm rồi, thử lại nhé!</p>
+            <button onclick="closeFail()" class="w-full bg-[#b31b25] text-white py-5 rounded-full font-bold text-2xl shadow-lg">Thử lại</button>
+        </div>
+    </div>
+
+    <script src="assets/js/quiz_ghepchu.js"></script>
+</body>
+</html>

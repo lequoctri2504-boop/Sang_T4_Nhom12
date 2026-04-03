@@ -1,0 +1,79 @@
+/* Font chữ chủ đạo */
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* --- Khu vực Ngôi Sao Thành Tích --- */
+#stars-container {
+    display: block; /* Chuyển về block để dễ căn chỉnh vị trí tuyệt đối từng sao */
+    text-align: center;
+    height: 120px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Style chung cho từng ngôi sao */
+.star-glow {
+    font-size: 3rem;
+    display: inline-block; /* Quan trọng: transform chỉ hoạt động tốt trên inline-block/block */
+    position: relative;
+    opacity: 0; /* Mặc định ẩn để JS kích hoạt */
+    transition: all 0.3s ease;
+}
+
+/* Hiệu ứng sao bay lên */
+.star-pop {
+    animation: starPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes starPop {
+    0% { transform: scale(0) translateY(0); opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* --- TẠO ĐỘ CONG CHI TIẾT (Sử dụng !important để tránh bị ghi đè) --- */
+
+/* Sao 1 (Ngoại cùng bên trái) */
+#stars-container span:nth-child(1) {
+    transform: translateY(35px) rotate(-20deg) !important;
+}
+
+/* Sao 2 */
+#stars-container span:nth-child(2) {
+    transform: translateY(10px) rotate(-10deg) !important;
+}
+
+/* Sao 3 (Ở giữa - Cao nhất) */
+#stars-container span:nth-child(3) {
+    transform: translateY(-5px) rotate(0deg) !important;
+}
+
+/* Sao 4 */
+#stars-container span:nth-child(4) {
+    transform: translateY(10px) rotate(10deg) !important;
+}
+
+/* Sao 5 (Ngoại cùng bên phải) */
+#stars-container span:nth-child(5) {
+    transform: translateY(35px) rotate(20deg) !important;
+}
+
+/* --- Các thành phần khác --- */
+.result-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 8px solid #ffffff;
+    border-radius: 4rem;
+}
+
+.btn-bounce {
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.btn-bounce:hover { transform: scale(1.05) translateY(-2px); }
+.btn-bounce:active { transform: scale(0.95); }
+
+.deco-circle {
+    position: absolute;
+    border-radius: 9999px;
+    z-index: -1;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bé Tập Tô Chữ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/quiz.css">
+    <link rel="stylesheet" href="assets/css/quiz_tomau.css">
+</head>
+<body class="bg-[#e6ffc5] min-h-screen flex flex-col items-center p-6 font-['Plus_Jakarta_Sans']">
+    
+    <header class="w-full max-w-5xl flex justify-between items-center mb-8 relative">
+        <button onclick="location.href='index.html'" class="bg-white px-6 py-2 rounded-full font-bold text-[#04647d] shadow-sm hover:scale-105 transition-transform">← Quay lại</button>
+        
+        <h1 class="text-3xl font-black text-[#04647d]">Bé tô chữ <span id="current-letter-title">A</span></h1>
+
+        <div class="bg-[#feda57] px-6 py-2 rounded-full font-bold text-[#6e5a00] shadow-sm">
+            Ngôi sao: ⭐ <span id="star-count">0</span>
+        </div>
+    </header>
+
+    <div class="tracing-container shadow-2xl">
+        <div class="letter-placeholder-container">
+            <span id="display-letter" class="tracing-letter font-black">A</span>
+        </div>
+        <canvas id="paintCanvas" width="800" height="500"></canvas>
+    </div>
+
+    <div class="flex gap-8 mt-8">
+        <button onclick="clearCanvas()" class="w-20 h-20 bg-[#feda57] rounded-full flex items-center justify-center shadow-lg text-4xl hover:scale-110 transition-transform">🧹</button>
+        <button onclick="finishPainting()" class="w-20 h-20 bg-[#04647d] rounded-full flex items-center justify-center shadow-lg text-4xl hover:scale-110 transition-transform">✨</button>
+    </div>
+
+    <div id="feedback-overlay" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center hidden backdrop-blur-sm p-6">
+        <div class="bg-white rounded-[3rem] p-12 shadow-2xl text-center max-w-lg w-full scale-90 animate-popIn relative">
+            <div class="absolute -top-16 left-1/2 -translate-x-1/2 flex gap-2">
+                <span class="text-6xl animate-bounceDelay">⭐</span>
+                <span class="text-8xl animate-bounce">🐮</span>
+                <span class="text-6xl animate-bounceDelay">⭐</span>
+            </div>
+            <h2 class="text-5xl font-black text-[#7bbf22] mb-4 mt-12">Tuyệt Vời!</h2>
+            <p class="text-2xl text-[#04647d] font-bold mb-10">Bé tô chữ rất đẹp!</p>
+            <button onclick="nextStep()" class="w-full bg-[#04647d] text-white py-5 rounded-full font-bold text-2xl shadow-lg">Tiếp tục nào!</button>
+        </div>
+    </div>
+
+    <div id="fail-overlay" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center hidden backdrop-blur-sm p-6">
+        <div class="bg-white rounded-[3rem] p-12 shadow-2xl text-center max-w-lg w-full scale-90 animate-popIn relative">
+            <div class="text-8xl mb-4">😢</div>
+            <h2 class="text-5xl font-black text-[#b31b25] mb-4">Tiếc quá!</h2>
+            <p class="text-2xl text-[#834b55] font-bold mb-10">Bé cố gắng tô vào giữa chữ nhé!</p>
+            <button onclick="closeFail()" class="w-full bg-[#b31b25] text-white py-5 rounded-full font-bold text-2xl shadow-lg">Thử lại nào!</button>
+        </div>
+    </div>
+
+    <script src="assets/js/quiz_tomau.js"></script>
+</body>
+</html>

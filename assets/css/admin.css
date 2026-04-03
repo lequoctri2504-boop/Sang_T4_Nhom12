@@ -1,0 +1,44 @@
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #f1f8e9;
+    color: #1e293b;
+}
+
+.navbar-admin {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 2rem;
+    border: 1px solid #ffffff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.tab-btn.active {
+    color: #04647d !important;
+    border-bottom: 3px solid #04647d;
+}
+
+.stat-card {
+    border-radius: 3rem;
+    border: 1px solid white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+}
+
+.admin-box {
+    background: white;
+    border-radius: 3rem;
+    padding: 2rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.02);
+}
+
+.letter-badge {
+    width: 60px; height: 60px;
+    border-radius: 1.25rem;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 1.5rem;
+}
+
+.pet-card {
+    background: white; border-radius: 2.5rem; padding: 2rem; text-align: center;
+    border: 1px solid #f1f5f9; transition: transform 0.3s;
+}
+.pet-card:hover { transform: translateY(-5px); }

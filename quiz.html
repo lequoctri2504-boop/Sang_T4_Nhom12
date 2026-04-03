@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html class="light" lang="vi">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Thử Thách Tìm Chữ - Chữ Cái Vui Vẻ</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="stylesheet" href="assets/css/quiz.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800&family=Be+Vietnam+Pro:wght@700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+</head>
+<body class="bg-[#e6ffc5] font-['Be_Vietnam_Pro'] min-h-screen flex flex-col overflow-hidden relative">
+    
+    <header class="p-6 flex justify-between items-center bg-[#e6ffc5] sticky top-0 z-10">
+        <div class="absolute top-8 right-8 bg-[#feda57] px-6 py-2 rounded-full font-bold text-[#6e5a00] shadow-sm z-10">
+        Ngôi sao: ⭐ <span id="star-count">0</span>
+    </div>
+
+        <span class="text-2xl font-black text-[#04647d] font-['Plus_Jakarta_Sans']">Chữ Cái Vui Vẻ</span>
+        <div class="bg-white px-6 py-2 rounded-full shadow-sm font-bold text-[#04647d]">Câu hỏi <span id="q-number">1</span>/4</div>
+    </header>
+
+    <main class="flex-1 flex flex-col items-center justify-center pt-12 pb-12 px-6">
+        <div class="text-center mb-8">
+            <h1 class="font-['Plus_Jakarta_Sans'] font-black text-4xl text-[#04647d] mb-2">Thử Thách Tìm Chữ</h1>
+        </div>
+
+        <div class="relative group mb-12">
+            <button onclick="playQuizAudio()" class="relative w-48 h-48 bg-[#04647d] rounded-full flex items-center justify-center shadow-xl hover:scale-105 transition-all">
+                <span class="material-symbols-outlined text-white text-7xl" style="font-variation-settings: 'FILL' 1">volume_up</span>
+            </button>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl w-full">
+            <button onclick="checkAnswer('A', this)" class="quiz-bubble aspect-square rounded-full bg-white shadow-lg flex items-center justify-center text-7xl font-black text-[#04647d] font-['Plus_Jakarta_Sans']">A</button>
+            <button onclick="checkAnswer('B', this)" class="quiz-bubble aspect-square rounded-full bg-white shadow-lg flex items-center justify-center text-7xl font-black text-[#834b55] font-['Plus_Jakarta_Sans']">B</button>
+            <button onclick="checkAnswer('C', this)" class="quiz-bubble aspect-square rounded-full bg-white shadow-lg flex items-center justify-center text-7xl font-black text-[#6e5a00] font-['Plus_Jakarta_Sans']">C</button>
+            <button onclick="checkAnswer('D', this)" class="quiz-bubble aspect-square rounded-full bg-white shadow-lg flex items-center justify-center text-7xl font-black text-[#508400] font-['Plus_Jakarta_Sans']">D</button>
+        </div>
+    </main>
+
+    <div id="feedback-overlay" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center hidden backdrop-blur-sm p-6">
+        <div class="bg-white rounded-[3rem] p-12 shadow-2xl text-center max-w-lg w-full scale-90 animate-popIn relative">
+            <div class="absolute -top-16 left-1/2 -translate-x-1/2 flex gap-2">
+                <span class="text-6xl animate-bounceDelay">⭐</span>
+                <span class="text-8xl animate-bounce">🐮</span>
+                <span class="text-6xl animate-bounceDelay">⭐</span>
+            </div>
+            <h2 class="text-5xl font-black text-[#7bbf22] mb-4 mt-12">Tuyệt Vời!</h2>
+            <p class="text-2xl text-[#04647d] font-bold mb-10">Bé đã nhận được một ngôi sao!</p>
+            <button onclick="nextQuestion()" class="w-full bg-[#04647d] text-white py-5 rounded-full font-bold text-2xl shadow-lg">Tiếp tục nào!</button>
+        </div>
+    </div>
+
+    <div id="fail-overlay" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center hidden backdrop-blur-sm p-6">
+        <div class="bg-white rounded-[3rem] p-12 shadow-2xl text-center max-w-lg w-full scale-90 animate-popIn relative">
+            <div class="text-8xl mb-4">😢</div>
+            <h2 class="text-5xl font-black text-[#b31b25] mb-4">Tiếc quá!</h2>
+            <p class="text-2xl text-[#834b55] font-bold mb-10">Sai rồi, bé làm lại nhé!</p>
+            <button onclick="closeFailOverlay()" class="w-full bg-[#b31b25] text-white py-5 rounded-full font-bold text-2xl shadow-lg">Thử lại nào!</button>
+        </div>
+    </div>
+
+    <script src="assets/js/quiz.js"></script>
+    <audio id="audio-player"></audio>
+</body>
+</html>

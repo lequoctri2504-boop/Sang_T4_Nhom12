@@ -1,31 +1,18 @@
 <?php
-
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\LetterController;
+use App\Http\Controllers\Api\QuizController;
+use App\Http\Controllers\Api\ScoreController;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/user', function (Request $request) {
-//     return $request->user();
-// })->middleware('auth:sanctum');
+// Test API còn sống không
+Route::get('/status', fn() => response()->json(['status' => 'OK', 'message' => 'Backend đang chạy!']));
 
+// Chữ cái
+Route::get('/letters',       [LetterController::class, 'index']);
+Route::get('/letters/{id}',  [LetterController::class, 'show']);
 
-use App\Http\Controllers\Api\AlphabetController;
+// Quiz
+Route::get('/quizzes',       [QuizController::class, 'index']);
 
-
-Route::get('/alphabets', [AlphabetController::class, 'index']);
-Route::get('/alphabets/{id}', [AlphabetController::class, 'show']);
-
-// Route test
-Route::get('/status', function() {
-    return response()->json(['status' => 'Backend is running!']);
-});
-
-
-
-// Lấy danh sách chữ cái: GET http://127.0.0.1:8000/api/alphabets
-Route::get('/alphabets', [AlphabetController::class, 'index']);
-
-// Xem chi tiết: GET http://127.0.0.1:8000/api/alphabets/{id}
-Route::get('/alphabets/{id}', [AlphabetController::class, 'show']);
-
-// Thêm mới (Cho Admin): POST http://127.0.0.1:8000/api/alphabets
-Route::post('/alphabets', [AlphabetController::class, 'store']);
+// Điểm số
+Route::post('/scores',       [ScoreController::class, 'store']);

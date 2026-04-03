@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thành Tích Của Bé - Chữ Cái Vui Vẻ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1" />
+    <link rel="stylesheet" href="assets/css/thanh_tich.css">
+</head>
+<body class="bg-[#f1f8e9] min-h-screen flex font-['Plus_Jakarta_Sans']">
+
+    <aside class="w-72 bg-white m-6 rounded-[3rem] shadow-sm flex flex-col items-center p-8 fixed h-[calc(100vh-3rem)]">
+        <div class="mb-10 text-center">
+            <div class="w-24 h-24 rounded-full border-4 border-[#ffcdd2] p-1 mb-4">
+                <img src="https://ui-avatars.com/api/?name=Be+Gia+Han&background=ffcdd2&color=fff" class="w-full h-full rounded-full" alt="Avatar">
+            </div>
+            <h3 class="text-[#04647d] font-black text-xl">Chào bé!</h3>
+            <p class="text-slate-400 text-xs">Tiến độ hôm nay thế nào?</p>
+        </div>
+
+        <nav class="flex flex-col gap-4 w-64">
+    <a href="index.html" class="flex items-center gap-4 px-6 py-4 rounded-[1.5rem] font-bold text-slate-600 hover:bg-[#c5e4ff] hover:text-[#04647d] transition-all group">
+        <span class="material-symbols-outlined text-2xl">school</span>
+        <span class="text-lg">Học Tập</span>
+    </a>
+
+    <a href="#" class="flex items-center gap-4 px-6 py-4 rounded-[1.5rem] font-bold text-slate-600 hover:bg-[#c5e4ff] hover:text-[#04647d] transition-all">
+        <span class="material-symbols-outlined text-2xl">extension</span>
+        <span class="text-lg">Thử Thách</span>
+    </a>
+
+    <a href="#" class="flex items-center gap-4 px-6 py-4 rounded-[1.5rem] font-bold text-slate-600 hover:bg-[#c5e4ff] hover:text-[#04647d] transition-all">
+        <span class="material-symbols-outlined text-2xl">videogame_asset</span>
+        <span class="text-lg">Mini Game</span>
+    </a>
+
+    <a href="#" class="flex items-center gap-4 px-6 py-4 rounded-[1.5rem] font-bold bg-[#c5e4ff] text-[#04647d] transition-all">
+        <span class="material-symbols-outlined text-2xl">insights</span>
+        <span class="text-lg">Thống Kê</span>
+    </a>
+</nav>
+
+        <div class="mt-auto w-full">
+            <a href="admin.html" class="nav-item">
+                <span class="material-symbols-outlined">settings_accessibility</span> Phụ Huynh
+            </a>
+        </div>
+    </aside>
+
+    <main class="ml-[22rem] flex-1 p-12">
+        <header class="mb-10">
+            <h1 class="text-4xl font-black text-[#04647d] mb-2">Thành Tích Của Bé</h1>
+            <p class="text-slate-500 font-medium">Cùng nhìn lại những bước chân nhỏ bé trên hành trình khám phá tiếng Việt!</p>
+        </header>
+
+        <div class="grid grid-cols-12 gap-8 mb-10">
+            <div class="col-span-4 space-y-8">
+                <div class="stat-card bg-white p-8 relative overflow-hidden">
+                    <span class="material-symbols-outlined text-blue-400 text-4xl mb-4">stars</span>
+                    <p class="text-slate-400 font-bold text-sm uppercase">Tổng câu đúng</p>
+                    <h2 class="text-5xl font-black text-[#04647d] my-2">1,284</h2>
+                    <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-xs font-bold flex items-center w-max gap-1">
+                        <span class="material-symbols-outlined text-sm">trending_up</span> +12% tuần này
+                    </span>
+                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-blue-50 rounded-full opacity-50"></div>
+                </div>
+
+                <div class="stat-card bg-white p-8 relative overflow-hidden">
+                    <span class="material-symbols-outlined text-pink-400 text-4xl mb-4">timer</span>
+                    <p class="text-slate-400 font-bold text-sm uppercase">Thời gian học</p>
+                    <h2 class="text-5xl font-black text-[#04647d] my-2">25 <small class="text-xl">phút</small></h2>
+                    <p class="text-slate-400 text-xs">Trung bình mỗi ngày</p>
+                    <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-pink-50 rounded-full opacity-50"></div>
+                </div>
+            </div>
+
+            <div class="col-span-8 bg-white rounded-[3rem] p-10 shadow-sm relative">
+                <div class="flex justify-between items-center mb-10">
+                    <h3 class="text-2xl font-black text-[#1b2559]">Tiến độ tuần này</h3>
+                    <div class="flex items-center gap-2 text-xs font-bold text-slate-400">
+                        <span class="w-2 h-2 bg-blue-400 rounded-full"></span> HỌC TẬP
+                    </div>
+                </div>
+                <div class="flex items-end justify-between h-64 border-b border-slate-100 pb-2 relative">
+                    <div class="chart-bar h-[20%]"><span>THỨ 2</span></div>
+                    <div class="chart-bar h-[40%]"><span>THỨ 3</span></div>
+                    <div class="chart-bar h-[80%] active"><div class="tooltip">35 phút</div><span>THỨ 4</span></div>
+                    <div class="chart-bar h-[50%]"><span>THỨ 5</span></div>
+                    <div class="chart-bar h-[30%]"><span>THỨ 6</span></div>
+                    <div class="chart-bar h-[60%]"><span>THỨ 7</span></div>
+                    <div class="chart-bar h-[10%]"><span>CN</span></div>
+                </div>
+            </div>
+        </div>
+
+        <section class="bg-white rounded-[3.5rem] p-10 shadow-sm">
+            <div class="flex justify-between items-center mb-10">
+                <div>
+                    <h3 class="text-2xl font-black text-[#1b2559]">Nhật ký học tập</h3>
+                    <p class="text-slate-400 text-sm">Chi tiết kết quả các bài học gần nhất</p>
+                </div>
+                <button class="bg-[#04647d] text-white px-8 py-3 rounded-full font-bold flex items-center gap-2">
+                    <span class="material-symbols-outlined">download</span> Xuất báo cáo
+                </button>
+            </div>
+
+            <table class="w-full text-left">
+                <thead class="text-slate-400 text-[10px] uppercase tracking-widest border-b border-slate-50">
+                    <tr>
+                        <th class="pb-6">Bé học tập</th>
+                        <th class="pb-6 text-center">Đúng/Tổng</th>
+                        <th class="pb-6">Tiến độ bài học</th>
+                        <th class="pb-6">Thời gian</th>
+                        <th class="pb-6"></th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-50" id="log-table-body">
+                    </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="assets/js/thanh_tich.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+.stat-card {
+    border-radius: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 25px;
+    border-radius: 1.5rem;
+    font-weight: 700;
+    color: #64748b;
+    transition: all 0.3s;
+}
+
+.nav-item span { font-size: 24px; }
+
+.nav-item:hover, .nav-item.active {
+    background-color: #c5e4ff;
+    color: #04647d;
+}
+
+/* Style cho biểu đồ cột */
+.chart-bar {
+    width: 40px;
+    background-color: #f1f5f9;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.chart-bar span {
+    position: absolute;
+    bottom: -30px;
+    font-size: 10px;
+    font-weight: 800;
+    color: #cbd5e1;
+    white-space: nowrap;
+}
+
+.chart-bar.active { background-color: #04647d; }
+.chart-bar.active span { color: #04647d; }
+
+.tooltip {
+    position: absolute;
+    top: -40px;
+    background: #04647d;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 800;
+}

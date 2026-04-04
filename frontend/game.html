@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html class="light" lang="vi">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Chọn Trò Chơi - Chữ Cái Vui Vẻ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/game.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800&family=Be+Vietnam+Pro:wght@700&display=swap" rel="stylesheet"/>
+</head>
+<body class="bg-surface font-body min-h-screen flex flex-col">
+
+    <header class="p-6 flex justify-between items-center">
+        <span class="text-2xl font-black text-primary font-headline">Chữ Cái Vui Vẻ</span>
+        <button onclick="window.location.href='chon_chu_de.html'" 
+class="bg-white px-6 py-2 rounded-full shadow-sm text-primary font-bold squish-effect">
+  Quay lại
+</button>
+    </header>
+
+    <main class="flex-1 flex flex-col items-center justify-center px-6">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-black text-primary mb-4 font-headline">Bé muốn chơi gì nào?</h1>
+            <p class="text-on-background opacity-70 font-bold text-xl">Chọn một trò chơi để bắt đầu nhé!</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
+            
+            <a href="quiz_tomau.html" class="game-card bg-white p-8 rounded-xl tactile-shadow text-center">
+                <div class="game-icon bg-secondary-container">🎨</div>
+                <h2 class="text-3xl font-black text-secondary font-headline">Tô Màu</h2>
+                <p class="mt-2 text-secondary opacity-60 font-bold">Cùng tô chữ thật đẹp nhé!</p>
+            </a>
+
+            <a href="quiz_ghepchu.html" class="game-card bg-white p-8 rounded-xl tactile-shadow text-center">
+                <div class="game-icon bg-primary-container">🧩</div>
+                <h2 class="text-3xl font-black text-primary font-headline">Ghép Chữ</h2>
+                <p class="mt-2 text-primary opacity-60 font-bold">Kéo chữ vào đúng ô trống!</p>
+            </a>
+
+            <a href="quiz.html" class="game-card bg-white p-8 rounded-xl tactile-shadow text-center">
+                <div class="game-icon bg-tertiary-container">🔍</div>
+                <h2 class="text-3xl font-black text-tertiary font-headline">Tìm Chữ</h2>
+                <p class="mt-2 text-tertiary opacity-60 font-bold">Lắng nghe và chọn đúng nhé!</p>
+            </a>
+
+        </div>
+    </main>
+
+    <footer class="p-8 text-center opacity-40">
+        <p>© 2024 The Playful Voyager - Học Tiếng Việt Thật Vui</p>
+    </footer>
+
+</body>
+</html>

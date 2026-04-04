@@ -1,0 +1,60 @@
+/* --- BIẾN MÀU SẮC THEO DESIGN SYSTEM --- */
+:root {
+    --primary: #04647d;
+    --primary-container: #9ae1ff;
+    --secondary: #834b55;
+    --secondary-container: #ffc2ca;
+    --tertiary: #6e5a00;
+    --tertiary-container: #feda57;
+    --surface: #e6ffc5;
+}
+
+/* --- ĐỊNH DẠNG CHUNG --- */
+.bg-surface { background-color: var(--surface); }
+.text-primary { color: var(--primary); }
+.text-secondary { color: var(--secondary); }
+.text-tertiary { color: var(--tertiary); }
+.bg-primary-container { background-color: var(--primary-container); }
+.bg-secondary-container { background-color: var(--secondary-container); }
+.bg-tertiary-container { background-color: var(--tertiary-container); }
+
+/* --- HIỆU ỨNG TACTILE (CẢM GIÁC VẬT LÝ) --- */
+.tactile-shadow {
+    box-shadow: 0px 20px 40px rgba(29, 53, 0, 0.06);
+}
+
+.squish-effect:active {
+    transform: scale(0.95);
+}
+
+/* --- HIỆU ỨNG LUNG LAY (WOBBLE) --- */
+@keyframes wobble {
+    0%, 100% { transform: rotate(-2deg) scale(1); }
+    50% { transform: rotate(2deg) scale(1.05); }
+}
+
+.game-card {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.game-card:hover {
+    animation: wobble 1s infinite ease-in-out;
+    background-color: #f8fff0; /* Đổi màu nền nhẹ khi hover */
+}
+
+/* --- ĐỊNH DẠNG BIỂU TƯỢNG --- */
+.game-icon {
+    aspect-ratio: 1/1;
+    border-radius: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 5rem;
+    transition: transform 0.3s;
+}
+
+.game-card:hover .game-icon {
+    transform: scale(1.1);
+}

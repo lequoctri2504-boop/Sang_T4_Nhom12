@@ -17,6 +17,8 @@ COPY . .
 RUN composer install --optimize-autoloader --no-dev --no-scripts
 
 # Cấp quyền cho thư mục
+# Cấp quyền cho thư mục và tạo file sqlite trống
+RUN touch database/database.sqlite
 RUN chown -R www-data:www-data storage bootstrap/cache database
 RUN chmod -R 775 storage bootstrap/cache database
 

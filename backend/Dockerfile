@@ -27,4 +27,4 @@ RUN sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/sites-available
 RUN a2enmod rewrite
 
 EXPOSE 80
-CMD ["apache2-foreground"]
+CMD php artisan migrate --force && apache2-foreground

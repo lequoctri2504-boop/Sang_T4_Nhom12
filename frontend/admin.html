@@ -11,7 +11,7 @@
 <body class="min-h-screen p-4 md:p-8">
 
     <nav class="navbar-admin max-w-7xl mx-auto mb-8 px-8 py-4 flex items-center justify-between">
-        <div class="flex items-center gap-3">
+        <div class="flex items-center gap-3 cursor-pointer" onclick="goHome()">
             <div class="w-10 h-10 bg-[#04647d] rounded-xl flex items-center justify-center text-white text-2xl">🏠</div>
             <span class="text-2xl font-black text-[#04647d]">Chữ Cái Vui Vẻ</span>
         </div>
@@ -22,7 +22,7 @@
             <button onclick="showTab('users')" id="btn-users" class="tab-btn pb-1 hover:text-[#04647d] transition">📊 Hoạt Động</button>
         </div>
 
-        <button class="bg-[#ff4d4f] text-white px-6 py-2 rounded-full font-bold shadow-sm hover:scale-105 transition">Đăng xuất</button>
+        <button id="logout-btn" onclick="logout()" class="bg-[#ff4d4f] text-white px-6 py-2 rounded-full font-bold shadow-sm hover:scale-105 transition">Đăng xuất</button>
     </nav>
 
     <div class="max-w-7xl mx-auto">
@@ -31,7 +31,7 @@
                 <p class="text-[#04647d] font-bold uppercase tracking-widest text-sm mb-1">Hệ Thống Quản Trị</p>
                 <h1 id="admin-title" class="text-4xl font-black text-slate-800">Chào buổi sáng, Admin!</h1>
             </div>
-            <button id="add-btn" class="bg-[#04647d] text-white px-8 py-4 rounded-3xl font-black text-lg flex items-center gap-2 shadow-lg transition">
+            <button id="add-btn" onclick="addNew()" class="bg-[#04647d] text-white px-8 py-4 rounded-3xl font-black text-lg flex items-center gap-2 shadow-lg transition">
                 <span>+</span> Thêm Mới
             </button>
         </div>
@@ -59,6 +59,7 @@
             </div>
     </div>
 
+    <script src="assets/js/config.js"></script>
     <script src="assets/js/admin.js"></script>
 </body>
 </html>

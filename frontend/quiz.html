@@ -12,6 +12,10 @@
 <body class="bg-[#e6ffc5] font-['Be_Vietnam_Pro'] min-h-screen flex flex-col overflow-hidden relative">
     
     <header class="p-6 flex justify-between items-center bg-[#e6ffc5] sticky top-0 z-10">
+        <button onclick="location.href='game.html'" class="bg-white p-3 rounded-full shadow-sm hover:scale-110 transition-transform flex items-center justify-center text-[#04647d] border-2 border-transparent hover:border-[#04647d]">
+            <span class="material-symbols-outlined text-2xl">arrow_back</span>
+        </button>
+        
         <div class="absolute top-8 right-8 bg-[#feda57] px-6 py-2 rounded-full font-bold text-[#6e5a00] shadow-sm z-10">
         Ngôi sao: ⭐ <span id="star-count">0</span>
     </div>
@@ -61,6 +65,7 @@
         </div>
     </div>
 
+    <script src="assets/js/config.js"></script>
     <script src="assets/js/quiz.js"></script>
     <audio id="audio-player"></audio>
 </body>

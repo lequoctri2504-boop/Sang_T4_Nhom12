@@ -8,6 +8,12 @@ use Illuminate\Routing\Controller as RoutingController;
 
 class ScoreController extends RoutingController
 {
+    public function index()
+    {
+        $scores = Score::orderBy('created_at', 'desc')->get();
+        return response()->json(['success' => true, 'data' => $scores]);
+    }
+
     public function store(Request $request)
     {
         $score = Score::create([

@@ -116,4 +116,78 @@ function clearCanvas() {
     setupCanvas();
 }
 
+// Audio mapping for all 29 letters
+const audioMap = {
+    'A': 'a.mp3',
+    'Ă': 'aw.mp3',
+    'Â': 'aa.mp3',
+    'B': 'b.mp3',
+    'C': 'c.mp3',
+    'D': 'd.mp3',
+    'Đ': 'dđ.mp3',
+    'E': 'e.mp3',
+    'Ê': 'ee.mp3',
+    'G': 'g.mp3',
+    'H': 'h.mp3',
+    'I': 'i.mp3',
+    'K': 'k.mp3',
+    'L': 'l.mp3',
+    'M': 'm.mp3',
+    'N': 'n.mp3',
+    'O': 'o.mp3',
+    'Ô': 'oo.mp3',
+    'Ơ': 'ơ.mp3',
+    'P': 'p.mp3',
+    'Q': 'q.mp3',
+    'R': 'r.mp3',
+    'S': 's.mp3',
+    'T': 't.mp3',
+    'U': 'u.mp3',
+    'Ư': 'ư.mp3',
+    'V': 'v.mp3',
+    'X': 'x.mp3',
+    'Y': 'y.mp3'
+};
+
+// Play audio for current letter being painted
+async function playTomauAudio() {
+    const currentLetter = document.getElementById('current-letter-title')?.innerText || 'A';
+    const audioFile = audioMap[currentLetter];
+    
+    if (!audioFile) {
+        console.warn('Audio file not found for letter:', currentLetter);
+        return;
+    }
+    
+    try {
+        // Try to fetch from local assets first
+        const response = await fetch(`../assets/audio/${audioFile}`);
+        if (response.ok) {
+            const blob = await response.blob();
+            const audioUrl = URL.createObjectURL(blob);
+            const audio = new Audio(audioUrl);
+            audio.play();
+            return;
+        }
+    } catch (error) {
+        console.log('Local audio fetch failed, trying backend:', error.message);
+    }
+    
+    try {
+        // Fallback to backend
+        const apiUrl = CONFIG?.API_URL || 'http://localhost:8000';
+        const response = await fetch(`${apiUrl}/storage/audio/${audioFile}`);
+        if (response.ok) {
+            const blob = await response.blob();
+            const audioUrl = URL.createObjectURL(blob);
+            const audio = new Audio(audioUrl);
+            audio.play();
+        } else {
+            console.error('Backend audio not found:', audioFile);
+        }
+    } catch (error) {
+        console.error('Error playing audio:', error);
+    }
+}
+
 window.onload = loadLetter;

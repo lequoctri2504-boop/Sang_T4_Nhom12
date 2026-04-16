@@ -9,25 +9,41 @@ class QuizController extends RoutingController
 {
     public function index()
     {
-        // Lấy random 10 câu, kèm tên chữ cái
+        $quizzes = Quiz::with('letter')->get()->map(function ($quiz) {
+            return [
+                'id'       => $quiz->id,
+                'type'     => $quiz->type,
+                'question' => $quiz->question,
+                'options'  => is_string($quiz->options) ? json_decode($quiz->options, true) : $quiz->options,
+                'correct_answer'   => $quiz->answer,
+                'letter'   => $quiz->letter ? [
+                    'id' => $quiz->letter->id,
+                    'name' => $quiz->letter->name,
+                    'audio_url' => $quiz->letter->audio ? asset('storage/' . $quiz->letter->audio) : null,
+                ] : null,
+            ];
+        });
+        return response()->json(['success' => true, 'data' => $quizzes]);
+    }
+
+    public function random(\Illuminate\Http\Request $request)
+    {
+        $limit = $request->query('limit', 4);
+        // Lấy random câu, kèm tên chữ cái
         $quizzes = Quiz::with('letter')
             ->inRandomOrder()
-            ->limit(10)
+            ->limit($limit)
             ->get()
             ->map(function ($quiz) {
                 return [
                     'id'       => $quiz->id,
                     'type'     => $quiz->type,
                     'question' => $quiz->question,
-                    'options'  => $quiz->options, // đã cast array tự động
+                    'options'  => is_string($quiz->options) ? json_decode($quiz->options, true) : $quiz->options,
                     'answer'   => $quiz->answer,
-                    'letter'   => $quiz->letter->name,
-                    'image_url'=> $quiz->letter->image
-                                    ? asset('storage/' . $quiz->letter->image)
-                                    : null,
-                    'audio_url'=> $quiz->letter->audio
-                                    ? asset('storage/' . $quiz->letter->audio)
-                                    : null,
+                    'letter'   => $quiz->letter->name ?? null,
+                    'image_url'=> ($quiz->letter && $quiz->letter->image) ? asset('storage/' . $quiz->letter->image) : null,
+                    'audio_url'=> ($quiz->letter && $quiz->letter->audio) ? asset('storage/' . $quiz->letter->audio) : null,
                 ];
             });
 

@@ -2,23 +2,276 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Bảng Chữ Cái - Bé Học Chữ</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng Chữ Cái Tiếng Việt - Bé Học Chữ</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800&family=Be+Vietnam+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
+
+    <style>
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #e6ffc5;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            background: white;
+            margin: 20px;
+            border-radius: 3rem;
+            display: flex;
+            flex-direction: column;
+            padding: 2.5rem 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 20px;
+            border-radius: 2rem;
+            font-weight: 700;
+            color: #64748b;
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-item:hover {
+            background-color: #f1f5f9;
+            color: #04647d;
+        }
+
+        .sidebar-item.active {
+            background-color: #baefff;
+            color: #04647d;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        /* Card Chữ Cái */
+        .letter-card {
+            background: white;
+            border-radius: 3rem;
+            padding: 2rem;
+            position: relative;
+            transition: transform 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+        }
+
+        .letter-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.05);
+        }
+
+        .letter-text {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 3.8rem;
+            font-weight: 900;
+            align-self: flex-start;
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+
+        /* Khung ảnh đen */
+        .image-box {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: #1a1a1a; 
+            border-radius: 2.2rem;
+            overflow: hidden;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Nút loa */
+        .audio-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Màu sắc */
+        .color-blue { color: #04647d; }
+        .color-brown { color: #735a00; }
+        .bg-pink { background-color: #ff9fb2; }
+        .bg-yellow { background-color: #feda57; }
+        .bg-green { background-color: #86efac; }
+    </style>
 </head>
 <body>
-    <div class="container mt-4 text-center">
-        <h2>Bảng Chữ Cái Tiếng Việt</h2>
-        <hr>
-        
-        <div id="letter-grid" class="row g-4 mt-3"></div>
 
-        <div class="mt-5">
-            <a href="index.html" class="btn btn-secondary">Quay lại trang chủ</a>
+    <div class="sidebar">
+        <div class="text-[#04647d] font-black text-2xl mb-12 px-4 leading-tight">
+            Chữ Cái<br>Vui Vẻ
+        </div>
+        
+        <nav class="flex-1">
+            <a href="chon_chu_de.html" class="sidebar-item">
+                <span class="material-symbols-outlined">home</span> Trang Chủ
+            </a>
+            
+            <a href="#" class="sidebar-item active">
+                <span class="material-symbols-outlined">school</span> Học Tập
+            </a>
+        </nav>
+
+        <div class="pt-6 border-t border-gray-100">
+            <a href="#" class="sidebar-item text-sm">
+                <span class="material-symbols-outlined">settings</span> Cài đặt
+            </a>
         </div>
     </div>
 
+    <div class="main-content">
+        <header class="mb-12">
+            <h1 class="text-5xl font-black text-[#04647d] mb-4">Bảng Chữ Cái Tiếng Việt</h1>
+            <p class="text-xl text-gray-600 font-medium">Bé ơi, cùng khám phá những chữ cái đáng yêu nhé!</p>
+        </header>
+
+        <div id="alphabet-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+            </div>
+
+        <footer class="mt-16 text-center text-gray-400 text-sm pb-10">
+            <p>© 2024 The Playful Voyager - Học Tiếng Việt Thật Vui</p>
+        </footer>
+    </div>
+
     <script src="assets/js/config.js"></script>
-    <script src="assets/js/api.js"></script>  <script src="assets/js/main.js"></script>
+    <script>
+        // Image mapping for all letters  
+        const imageMap = {
+            'A': 'a_ao.svg',
+            'Ă': 'a_an.svg',
+            'Â': 'a_au.svg',
+            'B': 'b_buom.svg',
+            'C': 'a_ca.svg',
+            'D': 'd_dua.svg',
+            'Đ': 'd_den.svg',
+            'E': 'e_em.svg',
+            'Ê': 'e_ech.svg',
+            'G': 'g_ga.svg',
+            'H': 'h_hoa.svg',
+            'I': 'i_in.svg',
+            'K': 'k_keo.svg',
+            'L': 'l_la.svg',
+            'M': 'm_meo.svg',
+            'N': 'n_non.svg',
+            'O': 'o_ong.svg',
+            'Ô': 'o_oc.svg',
+            'Ơ': 'o_ot.svg',
+            'P': 'p_pin.svg',
+            'Q': 'q_qua.svg',
+            'R': 'r_ran.svg',
+            'S': 's_sao.svg',
+            'T': 't_tho.svg',
+            'U': 'u_u.svg',
+            'Ư': 'u_uot.svg',
+            'V': 'v_voi.svg',
+            'X': 'x_xe.svg',
+            'Y': 'y_yeu.svg'
+        };
+        
+        // Fetch letters from API
+        async function loadAlphabet() {
+            const grid = document.getElementById('alphabet-grid');
+            
+            try {
+                const response = await fetch(`${CONFIG.API_URL}/api/letters`);
+                const result = await response.json();
+                const letters = result.data || result;
+                
+                grid.innerHTML = letters.map(letter => {
+                    // Generate color based on letter ID for variation
+                    const colors = ['color-blue', 'color-brown', 'text-blue-900', 'text-cyan-700', 'text-green-700', 'text-red-700'];
+                    const btnColors = ['bg-pink', 'bg-yellow', 'bg-green'];
+                    const colorIdx = (letter.id || 0) % colors.length;
+                    const btnIdx = (letter.id || 0) % btnColors.length;
+                    
+                    // Get image filename from mapping
+                    const imageName = imageMap[letter.name] || 'placeholder.svg';
+                    const imagePath = `assets/images/${imageName}`;
+                    
+                    // Extract audio filename
+                    const audioUrl = letter.audio_url || `${CONFIG.API_URL}/storage/audio/${letter.name.toLowerCase()}.mp3`;
+                    const audioFileName = audioUrl.split('/').pop();
+                    
+                    return `
+                        <div class="letter-card">
+                            <button class="audio-btn ${btnColors[btnIdx]}" onclick="playLetterAudio('${audioFileName}', '${letter.name}')" type="button">
+                                <span class="material-symbols-outlined">volume_up</span>
+                            </button>
+                            <div class="letter-text ${colors[colorIdx]}">${letter.name}</div>
+                            <div class="image-box">
+                                <img src="${imagePath}" alt="${letter.example_word}" style="width:100%; height:100%; object-fit:cover;" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22%3E%3Crect fill=%22%231a1a1a%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2248%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22%23888%22 font-family=%22Arial%22%3E${letter.name}%3C/text%3E%3C/svg%3E'">
+                            </div>
+                            <div class="text-2xl font-bold text-gray-700">${letter.example_word}</div>
+                            <a href="detail.html?id=${letter.id}" class="mt-3 text-sm text-[#04647d] font-semibold hover:underline">Chi tiết →</a>
+                        </div>
+                    `;
+                }).join('');
+            } catch (error) {
+                console.error('Lỗi tải chữ cái:', error);
+                grid.innerHTML = '<p class="text-red-500 text-xl">Lỗi tải dữ liệu. Vui lòng refresh trang.</p>';
+            }
+        }
+        
+        // Play audio for letter
+        async function playLetterAudio(fileName, letterName) {
+            try {
+                // Try local first
+                let response = await fetch(`assets/audio/${fileName}`);
+                // Fallback to backend
+                if (!response.ok) {
+                    response = await fetch(`${CONFIG.API_URL}/storage/audio/${fileName}`);
+                }
+                
+                if (!response.ok) throw new Error('Audio not found');
+                
+                const blob = await response.blob();
+                const audioUrl = URL.createObjectURL(blob);
+                const audio = new Audio(audioUrl);
+                audio.play().catch(err => console.error('Lỗi phát âm:', err));
+            } catch (error) {
+                console.error('Lỗi phát âm cho', letterName, ':', error);
+            }
+        }
+
+        window.onload = loadAlphabet;
+    </script>
 </body>
 </html>

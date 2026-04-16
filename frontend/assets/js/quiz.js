@@ -1,26 +1,102 @@
 // =======================
-// 1. DATA
+// 0. AUDIO MAP - TẤT CẢ 29 CHỮ CÁI
 // =======================
-const quizData = [
-    { correct: "A", options: ["A","B","C","D"], sound: "assets/audio/a.mp3" },
-    { correct: "B", options: ["E","B","G","H"], sound: "assets/audio/b.mp3" },
-    { correct: "C", options: ["I","K","C","L"], sound: "assets/audio/c.mp3" },
-    { correct: "D", options: ["M","N","O","D"], sound: "assets/audio/d.mp3" }
-];
+const audioMap = {
+    'A': 'a.mp3',
+    'Ă': 'aw.mp3',
+    'Â': 'aa.mp3',
+    'B': 'b.mp3',
+    'C': 'c.mp3',
+    'D': 'd.mp3',
+    'Đ': 'dđ.mp3',
+    'E': 'e.mp3',
+    'Ê': 'ee.mp3',
+    'G': 'g.mp3',
+    'H': 'h.mp3',
+    'I': 'i.mp3',
+    'K': 'k.mp3',
+    'L': 'l.mp3',
+    'M': 'm.mp3',
+    'N': 'n.mp3',
+    'O': 'o.mp3',
+    'Ô': 'oo.mp3',
+    'Ơ': 'ơ.mp3',
+    'P': 'p.mp3',
+    'Q': 'q.mp3',
+    'R': 'r.mp3',
+    'S': 's.mp3',
+    'T': 't.mp3',
+    'U': 'u.mp3',
+    'Ư': 'ư.mp3',
+    'V': 'v.mp3',
+    'X': 'x.mp3',
+    'Y': 'y.mp3'
+};
 
 // =======================
-// 2. BIẾN
+// 1. BIẾN
 // =======================
+let quizData = [];
 let currentScore = 0;
 let currentIndex = 0;
+let userId = null;
+
+// =======================
+// 2. INIT - FETCH TỪ API
+// =======================
+async function initQuiz() {
+    try {
+        const response = await fetch(`${CONFIG.API_URL}/api/quizzes`);
+        const result = await response.json();
+        quizData = result.data || result;
+        
+        // Parse options từ API response
+        quizData = quizData.map(quiz => {
+            // Handle options - API returns array, but check if it's string
+            let options = quiz.options;
+            if (typeof options === 'string') {
+                options = options.split(' ').filter(o => o.trim());
+            }
+            
+            // Get audio file from letter object
+            let audioFile = null;
+            if (quiz.letter) {
+                // Try to get audio filename from audio_url (e.g., "http://127.0.0.1:8000/storage/a.mp3" -> "a.mp3")
+                if (quiz.letter.audio_url) {
+                    audioFile = quiz.letter.audio_url.split('/').pop();
+                } else if (quiz.letter.audio) {
+                    audioFile = quiz.letter.audio;
+                }
+            }
+            
+            return {
+                ...quiz,
+                correct: quiz.correct_answer || quiz.correct,
+                options: options,
+                audioFile: audioFile
+            };
+        });
+        
+        // Get userId from localStorage
+        userId = localStorage.getItem('userId');
+        
+        loadQuestion();
+    } catch (error) {
+        console.error("Lỗi fetch quizzes:", error);
+        alert("Không thể tải được câu hỏi. Vui lòng refresh trang.");
+    }
+}
 
 // =======================
 // 3. LOAD CÂU HỎI
 // =======================
 function loadQuestion() {
+    if (!quizData || quizData.length === 0) return;
+    
     const currentQuiz = quizData[currentIndex];
 
-    document.getElementById('q-number').innerText = currentIndex + 1;
+    // Update current question number and total
+    document.getElementById('q-number').innerText = `${currentIndex + 1}/${quizData.length}`;
 
     const buttons = document.querySelectorAll('.quiz-bubble');
 
@@ -61,30 +137,47 @@ function checkAnswer(selected, element) {
 }
 
 // =======================
-// 5. NEXT (CẬP NHẬT: CỘNG SAO VÀ CHUYỂN CÂU)
+// 5. NEXT - LƯU SCORE VÀO API
 // =======================
-function nextQuestion() {
-    // 1. Cộng 1 sao vào kho lưu trữ (localStorage)
-    let stars = parseInt(localStorage.getItem('userStars')) || 0;
-    stars += 1;
-    localStorage.setItem('userStars', stars);
-
-    // 2. Cập nhật con số hiển thị trên màn hình ngay lập tức
-    const starElement = document.getElementById('star-count');
-    if (starElement) {
-        starElement.innerText = stars;
-    }
-
-    // 3. Ẩn bảng thông báo
-    document.getElementById('feedback-overlay').classList.add('hidden');
-
-    // 4. KIỂM TRA CHUYỂN CÂU
-    if (currentIndex < quizData.length - 1) {
-        currentIndex++;
-        loadQuestion();
+async function nextQuestion() {
+    // 1. Nếu hết câu thì lưu score vào database
+    if (currentIndex >= quizData.length - 1) {
+        try {
+            const response = await fetch(`${CONFIG.API_URL}/api/scores`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                },
+                body: JSON.stringify({
+                    user_id: userId,
+                    stars: currentScore,
+                    quiz_type: 'normal'
+                })
+            });
+            
+            if (response.ok) {
+                console.log("Score saved to API");
+            }
+        } catch (error) {
+            console.error("Lỗi lưu score:", error);
+        }
+        
+        // 2. Chuyển tới trang kết quả
+        window.location.href = `result.html?score=${currentScore}&type=quiz`;
     } else {
-        // Hết câu thì về trang kết quả (Dùng stars thay cho currentScore để đồng bộ tổng sao)
-        window.location.href = "result.html?score=" + stars + "&type=quiz";
+        // 3. Cộng 1 sao vào localStorage (backup)
+        let stars = parseInt(localStorage.getItem('userStars')) || 0;
+        stars += 1;
+        localStorage.setItem('userStars', stars);
+
+        // 4. Ẩn bảng thông báo
+        document.getElementById('feedback-overlay').classList.add('hidden');
+
+        // 5. Chuyển câu tiếp
+        currentIndex++;
+        currentScore++;
+        loadQuestion();
     }
 }
 
@@ -99,18 +192,50 @@ function closeFailOverlay() {
 }
 
 // =======================
-// 7. ÂM THANH
+// 7. ÂM THANH - FETCH BLOB METHOD
 // =======================
-function playQuizAudio() {
-    const currentQuiz = quizData[currentIndex];
-    const audio = document.getElementById("audio-player");
-    audio.src = currentQuiz.sound;
-    audio.load();
-    audio.play().catch(err => console.error("Lỗi âm thanh:", err));
+async function playQuizAudio() {
+    let audioFile = null;
+    
+    // If quiz data is loaded, use current quiz's audio
+    if (quizData && quizData.length > 0) {
+        const currentQuiz = quizData[currentIndex];
+        audioFile = currentQuiz.audioFile;
+    }
+    
+    // Fallback: if no audio file found, pick a random letter
+    if (!audioFile) {
+        const letters = Object.keys(audioMap);
+        const randomLetter = letters[Math.floor(Math.random() * letters.length)];
+        audioFile = audioMap[randomLetter];
+    }
+    
+    try {
+        // Try to fetch from local assets first
+        let response = await fetch(`assets/audio/${audioFile}`);
+        
+        // Fallback to backend if local fails
+        if (!response.ok) {
+            response = await fetch(`${CONFIG.API_URL}/storage/audio/${audioFile}`);
+        }
+        
+        if (response.ok) {
+            const blob = await response.blob();
+            const blobUrl = URL.createObjectURL(blob);
+            
+            const audio = document.getElementById("audio-player");
+            audio.src = blobUrl;
+            audio.play().catch(err => console.error("Lỗi âm thanh:", err));
+        } else {
+            console.error("Không tìm thấy file âm thanh:", audioFile);
+        }
+    } catch (error) {
+        console.error("Lỗi fetch audio:", error);
+    }
 }
 
 // =======================
-// 8. KHỞI CHẠY (CẬP NHẬT: HIỆN SAO KHI VỪA VÀO)
+// 8. KHỞI CHẠY - FETCH QUIZZES TỰ API
 // =======================
 window.onload = function() {
     // Hiện số sao cũ bé đang có
@@ -119,5 +244,5 @@ window.onload = function() {
     if (starElement) {
         starElement.innerText = savedStars;
     }
-    loadQuestion();
+    initQuiz();
 };

@@ -3,5 +3,6 @@
         ".vscode/**",
         "backend/**",
         "**/*.log"
-    ]
+    ],
+    "liveServer.settings.port": 5501
 }

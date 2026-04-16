@@ -7,7 +7,43 @@ const ghepChuData = [
     { target: "E", options: ["A", "E", "C", "D"], hint: "E" }
 ];
 
+// Audio mapping for letters
+const audioMap = {
+    'A': 'a.mp3', 'Ă': 'aw.mp3', 'Â': 'aa.mp3', 'B': 'b.mp3',
+    'C': 'c.mp3', 'D': 'd.mp3', 'Đ': 'd.mp3', 'E': 'e.mp3',
+    'Ê': 'ee.mp3', 'G': 'g.mp3', 'H': 'h.mp3', 'I': 'i.mp3',
+    'K': 'k.mp3', 'L': 'l.mp3', 'M': 'm.mp3', 'N': 'n.mp3',
+    'O': 'o.mp3', 'Ô': 'oo.mp3', 'Ơ': 'ow.mp3', 'P': 'p.mp3',
+    'Q': 'q.mp3', 'R': 'r.mp3', 'S': 's.mp3', 'T': 't.mp3',
+    'U': 'u.mp3', 'Ư': 'uw.mp3', 'V': 'v.mp3', 'X': 'x.mp3', 'Y': 'y.mp3'
+};
+
 let currentLevel = 0;
+
+// Play audio for letter
+async function playGhepChuAudio() {
+    const targetLetter = ghepChuData[currentLevel].target;
+    const audioFile = audioMap[targetLetter];
+    
+    if (!audioFile) return;
+    
+    try {
+        let response = await fetch(`assets/audio/${audioFile}`);
+        if (!response.ok) {
+            response = await fetch(`${CONFIG.API_URL}/storage/audio/${audioFile}`);
+        }
+        
+        if (!response.ok) throw new Error('Audio not found');
+        
+        const blob = await response.blob();
+        const audioUrl = URL.createObjectURL(blob);
+        const audio = document.getElementById("audio-player");
+        audio.src = audioUrl;
+        audio.play().catch(err => console.error('Lỗi phát âm:', err));
+    } catch (error) {
+        console.error('Lỗi:', error);
+    }
+}
 
 // 2. Hàm khởi tạo câu hỏi
 function loadLevel() {

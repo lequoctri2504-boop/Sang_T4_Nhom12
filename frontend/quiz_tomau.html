@@ -11,7 +11,7 @@
 <body class="bg-[#e6ffc5] min-h-screen flex flex-col items-center p-6 font-['Plus_Jakarta_Sans']">
     
     <header class="w-full max-w-5xl flex justify-between items-center mb-8 relative">
-        <button onclick="location.href='index.html'" class="bg-white px-6 py-2 rounded-full font-bold text-[#04647d] shadow-sm hover:scale-105 transition-transform">← Quay lại</button>
+        <button onclick="location.href='game.html'" class="bg-white px-6 py-2 rounded-full font-bold text-[#04647d] shadow-sm hover:scale-105 transition-transform">← Quay lại</button>
         
         <h1 class="text-3xl font-black text-[#04647d]">Bé tô chữ <span id="current-letter-title">A</span></h1>
 
@@ -22,6 +22,9 @@
 
     <div class="tracing-container shadow-2xl">
         <div class="letter-placeholder-container">
+            <button onclick="playTomauAudio()" class="absolute top-4 right-4 bg-[#04647d] hover:bg-[#035366] transition text-white p-3 rounded-full shadow-lg">
+                <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1">volume_up</span>
+            </button>
             <span id="display-letter" class="tracing-letter font-black">A</span>
         </div>
         <canvas id="paintCanvas" width="800" height="500"></canvas>
@@ -54,6 +57,8 @@
         </div>
     </div>
 
+    <script src="assets/js/config.js"></script>
     <script src="assets/js/quiz_tomau.js"></script>
+    <audio id="audio-player"></audio>
 </body>
 </html>

@@ -37,4 +37,9 @@ RUN a2enmod rewrite
 EXPOSE 80
 
 # 8. Lệnh khởi chạy: Đảm bảo APP_KEY đã tồn tại rồi mới chạy migrate
-CMD php artisan migrate --force && apache2-foreground
+# CMD php artisan migrate --force && apache2-foreground
+
+# 8. Lệnh khởi chạy: Chạy migrate, sau đó SEED dữ liệu rồi mới bật Apache
+CMD php artisan migrate --force && \
+    php artisan db:seed --class=LetterSeeder --force && \
+    apache2-foreground

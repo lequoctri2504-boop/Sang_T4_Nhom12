@@ -11,8 +11,11 @@ class LetterSeeder extends Seeder
     {
         $letters = [
             ['name' => 'A',  'example_word' => 'Áo',    'sort_order' => 1,  'audio' => 'audio/a.mp3'],
-            ['name' => 'Ă',  'example_word' => 'Ăn',    'sort_order' => 2,  'audio' => 'audio/aa.mp3'],
-            ['name' => 'Â',  'example_word' => 'Âu',    'sort_order' => 3,  'audio' => 'audio/aw.mp3'],
+          //  ['name' => 'Ă',  'example_word' => 'Ăn',    'sort_order' => 2,  'audio' => 'audio/aa.mp3'],
+           // ['name' => 'Â',  'example_word' => 'Âu',    'sort_order' => 3,  'audio' => 'audio/aw.mp3'],
+             ['name' => 'Ă',  'example_word' => 'Ăn',    'sort_order' => 2,  'audio' => 'audio/aw.mp3'],
+            ['name' => 'Â',  'example_word' => 'Âu',    'sort_order' => 3,  'audio' => 'audio/aa.mp3'],
+            
             ['name' => 'B',  'example_word' => 'Bướm',  'sort_order' => 4,  'audio' => 'audio/b.mp3'],
             ['name' => 'C',  'example_word' => 'Cá',    'sort_order' => 5,  'audio' => 'audio/c.mp3'],
             ['name' => 'D',  'example_word' => 'Dưa',   'sort_order' => 6,  'audio' => 'audio/d.mp3'],

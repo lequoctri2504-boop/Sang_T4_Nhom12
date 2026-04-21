@@ -22,7 +22,7 @@ return [
     // 'allowed_origins' => [
     //     'http://127.0.0.1:5500', 
     // 'http://localhost:5500',
-    // 'https://bangchucai.gamer.gd' // Link online sau này
+    // 'https://bangchucai.gamer.gd' // Link online sau này ....
     // ],
     'allowed_origins' => ['*'], // Tạm thời cho phép tất cả khi dev
     // Sau khi deploy đổi lại thành link Infinityfree cụ thể

@@ -175,7 +175,8 @@ async function playTomauAudio() {
     
     try {
         // Fallback to backend
-        const apiUrl = CONFIG?.API_URL || 'http://localhost:8000';
+        //const apiUrl = CONFIG?.API_URL || 'http://localhost:8000';
+        const apiUrl = CONFIG?.API_URL || 'https://sang-t4-nhom12-v737.onrender.com';
         const response = await fetch(`${apiUrl}/storage/audio/${audioFile}`);
         if (response.ok) {
             const blob = await response.blob();
